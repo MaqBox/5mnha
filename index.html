@@ -38,11 +38,6 @@
                 </div>
             </div>
             <div class="result mb-3 text-theme"></div>
-            <div id="try-again-container" class="text-center" style="display: none;">
-                <button id="try-again" class="btn btn-warning btn-lg mt-2">
-                    <i class="bi bi-arrow-repeat"></i> حاول مرة أخرى
-                </button>
-            </div>
             <div class="attempts text-muted">
                 محاولات: <span id="current-attempt" class="fw-bold">0</span>/<span id="max-attempts" class="fw-bold">6</span>
             </div>
@@ -81,6 +76,24 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Game End Modal -->
+    <div class="modal fade" id="gameEndModal" tabindex="-1" aria-labelledby="gameEndModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="gameEndModalLabel">انتهت اللعبة</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center" id="gameEndModalBody">
+            <!-- Result message and correct price will be inserted here -->
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-primary" id="gameEndNext" data-bs-dismiss="modal">التالي</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>

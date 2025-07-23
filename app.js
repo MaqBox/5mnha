@@ -10,6 +10,7 @@ let currentProduct = null;
 let guesses = [];
 let attempts = 0;
 let maxAttempts = 6;
+let recentProducts = []; // Track last 15 shown products
 
 // DOM elements
 const guessInput = document.getElementById('guess-input');
@@ -17,6 +18,11 @@ const submitButton = document.getElementById('submit-guess');
 const guessContainer = document.querySelector('.guess-container');
 const resultDiv = document.querySelector('.result');
 const productImage = document.getElementById('product-image');
+
+// Get modal elements
+const gameEndModal = document.getElementById('gameEndModal');
+const gameEndModalBody = document.getElementById('gameEndModalBody');
+const gameEndTryAgain = document.getElementById('gameEndTryAgain');
 
 // Game functions
 function checkGuess(guess) {
@@ -47,7 +53,28 @@ function checkGuess(guess) {
 // Remove getTodayString, getDailyProductIndex, hasPlayedToday, savePlayedToday, and all their usages
 // Update initGame to pick a random product each time
 function getRandomProductIndex(products) {
-    return Math.floor(Math.random() * products.length);
+    // Filter out recently shown products
+    const availableProducts = products
+        .map((_, index) => index)
+        .filter(index => !recentProducts.includes(index));
+
+    // Reset history if all products have been shown
+    if (availableProducts.length === 0) {
+        recentProducts = [];
+        return Math.floor(Math.random() * products.length);
+    }
+
+    const randomIndex = availableProducts[
+        Math.floor(Math.random() * availableProducts.length)
+    ];
+
+    // Update recent products queue
+    recentProducts.push(randomIndex);
+    if (recentProducts.length > 15) {
+        recentProducts.shift();
+    }
+
+    return randomIndex;
 }
 
 async function initGame() {
@@ -75,7 +102,7 @@ async function initGame() {
     }
 }
 
-// Update submitButton event listener to show Try Again only after game ends
+// Update submitButton event listener to show modal on game end
 submitButton.addEventListener('click', () => {
     const guess = parseFloat(guessInput.value);
     if (!isNaN(guess)) {
@@ -87,8 +114,21 @@ submitButton.addEventListener('click', () => {
             renderGuesses();
         }
         if (result.correct || attempts >= maxAttempts) {
-            resultDiv.innerHTML = result.message;
-            resultDiv.classList.add('animate__animated', 'animate__bounce');
+            // Prepare modal content
+            let message = '';
+            const sarImg = '<img src="images/sar/Saudi_Riyal_Symbol-1.png" alt="SAR" class="sar-symbol" style="height: 1.5em; width: auto; vertical-align: middle; margin-left: 0.2em; margin-right: 0.2em;" />';
+            if (result.correct) {
+                message = `<div class='mb-3 text-success'>${result.message}<br><span class='fw-bold'>${toArabicNumerals(currentProduct.price)} ${sarImg}</span></div>`;
+            } else {
+                message = `<div class='mb-3 text-danger'>لقد خسرت! السعر الصحيح هو <span class='fw-bold'>${toArabicNumerals(currentProduct.price)} ${sarImg}</span></div>`;
+            }
+            gameEndModalBody.innerHTML = message;
+            // Show modal
+            const modal = new bootstrap.Modal(gameEndModal);
+            modal.show();
+            // Hide resultDiv
+            resultDiv.innerHTML = '';
+            resultDiv.classList.remove('animate__animated', 'animate__bounce');
             const tryAgainContainer = document.getElementById('try-again-container');
             if (tryAgainContainer) tryAgainContainer.style.display = 'block';
         } else {
@@ -99,12 +139,10 @@ submitButton.addEventListener('click', () => {
     }
 });
 
-// Add Try Again button logic
-const tryAgainContainer = document.getElementById('try-again-container');
-const tryAgainButton = document.getElementById('try-again');
-if (tryAgainButton) {
-    tryAgainButton.addEventListener('click', () => {
-        if (tryAgainContainer) tryAgainContainer.style.display = 'none';
+// Remove Try Again button logic
+const gameEndNext = document.getElementById('gameEndNext');
+if (gameEndNext) {
+    gameEndNext.addEventListener('click', () => {
         initGame();
     });
 }
