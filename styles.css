@@ -147,6 +147,7 @@ body {
     height: 1.8em;
     width: auto;
     vertical-align: middle;
+    filter: invert(1) brightness(2);
 }
 
 .guess-indicator {
@@ -290,10 +291,6 @@ h1, h2, h3, h4, h5, h6, p, span, div {
     .product-image {
         max-width: 100%;
     }
-}
-
-[data-theme="dark"] .sar-symbol {
-    filter: invert(1) brightness(2);
 }
 
 /* Adjust margins for RTL */
