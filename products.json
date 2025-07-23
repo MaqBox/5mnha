@@ -1,0 +1,137 @@
+[
+  {
+    "name": "المراعي حليب كامل الدسم 1 لتر",
+    "price": 7,
+    "imageUrl": "images/milk.jpg"
+  },
+  {
+    "name": "الأسرة سكر أبيض 5 كجم",
+    "price": 14,
+    "imageUrl": "images/sugar.jpg"
+  },
+  {
+    "name": "نخلتين زيت نباتي",
+    "price": 17,
+    "imageUrl": "images/NAKHLATAIN VEG OIL.jpeg"
+  },
+  {
+    "name": "كولجيت معجون أسنان ",
+    "price": 19,
+    "imageUrl": "images/COLGATE TOOTHPASTE TOTAL ADVANCED WHITENING 75ML.jpg"
+  },
+  {
+    "name": "سيارا قطع دجاج ",
+    "price": 44,
+    "imageUrl": "images/SEARA CHICKEN NUGGETS 750G.jpg"
+  },
+  {
+    "name": "صن رينج وجبة جبنة خفيفة",
+    "price": 7,
+    "imageUrl": "images/SUN RING CHEESE SNACKS.jpeg"
+  },
+  {
+    "name": "تيفاني بريك ميني فن",
+    "price": 15,
+    "imageUrl": "images/TIFFANY BREAK MINI FUN.jpeg"
+  },
+  {
+    "name": "البطل شرائح بطاطس بالفلفل الحار",
+    "price": 5,
+    "imageUrl": "images/AL BATAL POTATO CHIPS CHILI.jpeg"
+  },
+  {
+    "name": "باجة مكسرات مشوية ",
+    "price": 51,
+    "imageUrl": "images/BAJA BARBEQUE MIXED.jpeg"
+  },
+  {
+    "name": "باجة كاجو مملح",
+    "price": 29,
+    "imageUrl": "images/BAJA CASHEW SALTED NUTS.jpeg"
+  },
+  {
+    "name": "باجة مكسرات ديلوكس",
+    "price": 51,
+    "imageUrl": "images/BAJA DELUXE MIXED.jpeg"
+  },
+  {
+    "name": " كريسبي حروف",
+    "price": 5,
+    "imageUrl": "images/CRISPY LETTERS KETCHUP.jpeg"
+  },
+  {
+    "name": "دوريتوس جبنة ناتشو",
+    "price": 7,
+    "imageUrl": "images/DORITOS NACHO CHEESE.jpeg"
+  },
+  {
+    "name": " أعواد بطاطس حارة",
+    "price": 4,
+    "imageUrl": "images/FAIRCO POTATO STIX HOT&SPICY.jpeg"
+  },
+  {
+    "name": "فيريرو رفاييلو شوكولاتة",
+    "price": 23,
+    "imageUrl": "images/FERRERO RAFFAELLO CHOCOLATE.jpeg"
+  },
+  {
+    "name": "فيريرو روشيه شوكولاتة",
+    "price": 57,
+    "imageUrl": "images/FERRERO ROCHER CHOCOLATE.jpeg"
+  },
+  {
+    "name": "هيرشيز كوكيز آند كريم",
+    "price": 5,
+    "imageUrl": "images/HERSHEYS COOKIES N CREAM BAR.jpeg"
+  },
+  {
+    "name": "كيندر بار شوكولاتة بالحليب",
+    "price": 9,
+    "imageUrl": "images/KINDER BAR MILK CHOCOLATE.jpeg"
+  },
+  {
+    "name": "كيندر جوي",
+    "price": 5,
+    "imageUrl": "images/KINDER JOY.jpeg"
+  },
+  {
+    "name": "كيت كات تشانكي",
+    "price": 5,
+    "imageUrl": "images/KIT KAT CHUNKY.jpeg"
+  },
+  {
+    "name": "إم آند إمز ميني ",
+    "price": 5,
+    "imageUrl": "images/M&MS MINIS TUBE.jpeg"
+  },
+  {
+    "name": " ميني مشكل",
+    "price": 51,
+    "imageUrl": "images/MARS MIXED MINIS.jpeg"
+  },
+  {
+    "name": "أوزمو بيض الوجوه",
+    "price": 5,
+    "imageUrl": "images/OZMO EGG FACES.jpeg"
+  },
+  {
+    "name": "ريسز زبدة الفول السوداني",
+    "price": 5,
+    "imageUrl": "images/REESE'S PEANUT BUTTER CUP.jpeg"
+  },
+  {
+    "name": "صن رينج ",
+    "price": 49,
+    "imageUrl": "images/SUN RING CHEESE SNACK.jpeg"
+  },
+  {
+    "name": "تيفاني بريك ديلايت",
+    "price": 13,
+    "imageUrl": "images/TIFFANY BREAK DELIGHT.jpeg"
+  },
+  {
+    "name": "تيفاني بريك ويفر",
+    "price": 15,
+    "imageUrl": "images/TIFFANY BREAK WAFER.jpeg"
+  }
+]

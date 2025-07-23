@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خمنها</title>
+    <!-- Google Fonts - Noto Sans Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+</head>
+<body class="text-theme">
+    <div class="container py-5">
+        <div class="game-container">
+            <div class="header mb-4">
+                <div class="d-flex justify-content-center align-items-center w-100">
+                    <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+                </div>
+            </div>
+            <div class="product-image mb-4">
+                <img id="product-image" src="" alt="Product image" class="img-fluid rounded shadow">
+            </div>
+            <h2 id="product-name" class="h3 mb-3 text-theme"></h2>
+            <p class="instructions text-muted mb-4">خمن سعر المنتج (بالريال السعودي)</p>
+            <div class="guess-container mb-4">
+                <!-- Guesses will be inserted here -->
+            </div>
+            <div class="input-container mb-4">
+                <div class="input-group">
+                    <button id="submit-guess" class="btn btn-primary btn-lg">
+                        <i class="bi bi-check-lg"></i> ارسل
+                    </button>
+                    <input type="text" id="guess-input" class="form-control form-control-lg" placeholder="ادخل السعر بالريال السعودي...">
+                </div>
+            </div>
+            <div class="result mb-3 text-theme"></div>
+            <div id="try-again-container" class="text-center" style="display: none;">
+                <button id="try-again" class="btn btn-warning btn-lg mt-2">
+                    <i class="bi bi-arrow-repeat"></i> حاول مرة أخرى
+                </button>
+            </div>
+            <div class="attempts text-muted">
+                محاولات: <span id="current-attempt" class="fw-bold">0</span>/<span id="max-attempts" class="fw-bold">6</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- History Modal -->
+    <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="historyModalLabel">تاريخ الألعاب</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="history-list" class="list-group">
+                        <!-- History items will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modal-image" src="" alt="Product image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
