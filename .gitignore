@@ -1,0 +1,9 @@
+# Exclude the New folder directory
+New folder/
+
+# Common files to exclude
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.env
