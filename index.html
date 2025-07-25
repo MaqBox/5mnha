@@ -17,8 +17,12 @@
     <div class="container py-5">
         <div class="game-container">
             <div class="header mb-4">
-                <div class="d-flex justify-content-center align-items-center w-100">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <button id="help-button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
                     <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+                    <div style="width: 40px;"></div> <!-- Spacer for centering -->
                 </div>
             </div>
             <div class="product-image mb-4">
@@ -49,6 +53,113 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Instructions Modal -->
+    <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="instructionsModalLabel">
+                        <i class="bi bi-info-circle me-2"></i>
+                        كيفية اللعب
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="instructions-content">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">1</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">انظر إلى المنتج</h6>
+                                            <p class="instruction-text">تأمل صورة المنتج واقرأ اسمه بعناية</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">2</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">خمن السعر</h6>
+                                            <p class="instruction-text">ادخل تخمينك لسعر المنتج بالريال السعودي</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">3</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">تابع التلميحات</h6>
+                                            <p class="instruction-text">استخدم الأسهم لمعرفة إذا كان السعر أعلى أم أقل</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">4</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">اربح في 6 محاولات</h6>
+                                            <p class="instruction-text">لديك 6 محاولات للوصول للسعر الصحيح</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="tips-section">
+                            <h6 class="tips-title mb-3">
+                                <i class="bi bi-lightbulb me-2"></i>
+                                نصائح مفيدة
+                            </h6>
+                            
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-arrow-up text-danger me-2"></i>
+                                        <span>السهم الأحمر يعني السعر أعلى</span>
+                                    </div>
+                                    
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-arrow-down text-success me-2"></i>
+                                        <span>السهم الأخضر يعني السعر أقل</span>
+                                    </div>
+                                    
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        <span>الدائرة الزرقاء تعني السعر صحيح</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-calculator me-2"></i>
+                                        <span>فكر في أسعار المنتجات المشابهة</span>
+                                    </div>
+                                    
+                                    <div class="tip-item">
+                                        <i class="bi bi-coin text-warning me-2"></i>
+                                        <span>قواعد التقريب: ١٦.٥ = ١٧ (للأعلى) | ١٦.٤ = ١٦ (للأسفل)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">فهمت!</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- History Modal -->
     <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">

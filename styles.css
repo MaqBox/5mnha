@@ -278,18 +278,245 @@ h1, h2, h3, h4, h5, h6, p, span, div {
     animation-duration: 0.5s;
 }
 
+/* Instructions Panel Styles */
+.instructions-panel {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.instructions-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.instruction-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s;
+}
+
+.instruction-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.instruction-number {
+    background-color: var(--button-bg);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+.instruction-content {
+    flex: 1;
+}
+
+.instruction-title {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.instruction-text {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.tips-section {
+    background-color: rgba(13, 110, 253, 0.1);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.tips-title {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.tip-item {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
 /* Responsive adjustments */
+@media (max-width: 991px) {
+    .instructions-panel {
+        position: static;
+        margin-top: 2rem;
+    }
+}
+
 @media (max-width: 576px) {
-    .game-container {
+    .instructions-panel {
         padding: 1rem;
     }
     
-    .header h1 {
-        font-size: 2rem;
+    .instruction-number {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
     }
     
-    .product-image {
-        max-width: 100%;
+    .instruction-title {
+        font-size: 0.9rem;
+    }
+    
+    .instruction-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* Adjust margins for RTL */
+.me-2 {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+}
+
+.ms-2 {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+}
+
+/* Adjust padding for RTL */
+.pe-2 {
+    padding-left: 0.5rem !important;
+    padding-right: 0 !important;
+}
+
+.ps-2 {
+    padding-right: 0.5rem !important;
+    padding-left: 0 !important;
+}
+
+/* Help Button Styles */
+#help-button {
+    border-color: var(--border-color);
+    color: var(--secondary-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+#help-button:hover {
+    background-color: var(--guess-bg);
+    border-color: var(--button-bg);
+    color: var(--button-bg);
+    transform: scale(1.1);
+}
+
+#help-button i {
+    font-size: 1.2rem;
+}
+
+/* Instructions Modal Styles */
+.instructions-content .instruction-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s;
+}
+
+.instructions-content .instruction-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.instructions-content .instruction-number {
+    background-color: var(--button-bg);
+    color: white;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-left: 0.75rem;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.instructions-content .instruction-content {
+    flex: 1;
+}
+
+.instructions-content .instruction-title {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.instructions-content .instruction-text {
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.instructions-content .tips-section {
+    background-color: rgba(13, 110, 253, 0.1);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.instructions-content .tips-title {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.instructions-content .tip-item {
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Modal responsive adjustments */
+@media (max-width: 576px) {
+    .instructions-content .instruction-number {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+    
+    .instructions-content .instruction-title {
+        font-size: 0.9rem;
+    }
+    
+    .instructions-content .instruction-text {
+        font-size: 0.8rem;
+    }
+    
+    .instructions-content .tips-section {
+        padding: 1rem;
     }
 }
 
