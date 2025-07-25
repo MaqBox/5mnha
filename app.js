@@ -70,7 +70,7 @@ function getRandomProductIndex(products) {
 
     // Update recent products queue
     recentProducts.push(randomIndex);
-    if (recentProducts.length > 15) {
+    if (recentProducts.length > 25) {
         recentProducts.shift();
     }
 
@@ -206,3 +206,22 @@ document.getElementById('product-image').addEventListener('click', function() {
     const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
     imageModal.show();
 });
+
+// Add image preloading and compression
+function optimizeImage(src) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.src = src;
+    });
+}
+
+// Preload next 3 product images
+function preloadNextImages() {
+    const nextIndexes = getNextProductIndexes(3);
+    nextIndexes.forEach(index => {
+        if (products[index]) {
+            optimizeImage(products[index].imageUrl);
+        }
+    });
+}
