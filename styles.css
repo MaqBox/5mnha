@@ -596,3 +596,119 @@ h1, h2, h3, h4, h5, h6, p, span, div {
     border-color: var(--border-color);
     color: var(--text-color);
 }
+
+/* Hide number input spinner buttons */
+#guess-input::-webkit-outer-spin-button,
+#guess-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+#guess-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Category Selection Styles */
+.category-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-box {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.category-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.category-box:active {
+    transform: translateY(-2px);
+}
+
+.category-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.category-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.category-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments for categories */
+@media (max-width: 768px) {
+    .category-box {
+        padding: 1.5rem 1rem;
+        min-height: 160px;
+    }
+    
+    .category-icon {
+        font-size: 2.5rem;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+    }
+    
+    .category-description {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-box {
+        padding: 1.25rem 0.75rem;
+        min-height: 140px;
+    }
+    
+    .category-icon {
+        font-size: 2rem;
+    }
+    
+    .category-title {
+        font-size: 1rem;
+    }
+}
+
+/* Back button styling */
+#back-to-categories {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Hide number input spinner buttons */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}

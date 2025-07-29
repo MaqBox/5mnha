@@ -15,14 +15,97 @@
 </head>
 <body class="text-theme">
     <div class="container py-5">
-        <div class="game-container">
+        <!-- Category Selection Screen -->
+        <div id="category-selection" class="category-container">
             <div class="header mb-4">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <button id="help-button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                    <button id="help-button-category" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
                         <i class="bi bi-question-circle"></i>
                     </button>
                     <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
                     <div style="width: 40px;"></div> <!-- Spacer for centering -->
+                </div>
+            </div>
+            
+            <div class="text-center mb-4">
+                <h2 class="h3 text-theme mb-3">اختر الفئة</h2>
+                <p class="text-muted">اختر فئة المنتجات التي تريد اللعب بها</p>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="fresh-produce">
+                        <div class="category-icon">
+                            <i class="bi bi-apple"></i>
+                        </div>
+                        <h4 class="category-title">خضار وفواكه طازجة</h4>
+                        <p class="category-description">موز، طماطم، خيار، برتقال وغيرها</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="snacks-chocolates">
+                        <div class="category-icon">
+                            <i class="bi bi-emoji-smile"></i>
+                        </div>
+                        <h4 class="category-title">وجبات خفيفة وشوكولاتة</h4>
+                        <p class="category-description">شيبس، مكسرات، شوكولاتة وحلويات</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="canned-goods">
+                        <div class="category-icon">
+                            <i class="bi bi-archive"></i>
+                        </div>
+                        <h4 class="category-title">معلبات</h4>
+                        <p class="category-description">تونة، ذرة، طماطم معلبة وفول</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="basic-products">
+                        <div class="category-icon">
+                            <i class="bi bi-house"></i>
+                        </div>
+                        <h4 class="category-title">منتجات أساسية</h4>
+                        <p class="category-description">حليب، زيت، سكر ومواد أساسية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="personal-care">
+                        <div class="category-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h4 class="category-title">عناية شخصية</h4>
+                        <p class="category-description">معجون أسنان ومنتجات العناية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="frozen-foods">
+                        <div class="category-icon">
+                            <i class="bi bi-snow"></i>
+                        </div>
+                        <h4 class="category-title">أطعمة مجمدة</h4>
+                        <p class="category-description">قطع دجاج مجمدة ومنتجات مجمدة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Screen -->
+        <div id="game-screen" class="game-container" style="display: none;">
+            <div class="header mb-4">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <button id="back-to-categories" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-arrow-right"></i> العودة للفئات
+                    </button>
+                    <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+                    <button id="help-button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
                 </div>
             </div>
             <div class="product-image mb-4">
@@ -41,7 +124,10 @@
                     <button id="submit-guess" class="btn btn-primary btn-lg">
                         <i class="bi bi-check-lg"></i> ارسل
                     </button>
-                    <input type="text" id="guess-input" class="form-control form-control-lg" placeholder="ادخل السعر بالريال السعودي...">
+                    <input type="number" id="guess-input" class="form-control form-control-lg" 
+                           placeholder="ادخل السعر بالريال السعودي..." 
+                           min="0" 
+                           step="1">
                 </div>
             </div>
             <div class="result mb-3 text-theme"></div>
@@ -73,6 +159,16 @@
                                     <div class="d-flex align-items-start">
                                         <span class="instruction-number">1</span>
                                         <div class="instruction-content">
+                                            <h6 class="instruction-title">اختر الفئة</h6>
+                                            <p class="instruction-text">اختر فئة المنتجات التي تريد اللعب بها</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">2</span>
+                                        <div class="instruction-content">
                                             <h6 class="instruction-title">انظر إلى المنتج</h6>
                                             <p class="instruction-text">تأمل صورة المنتج واقرأ اسمه بعناية</p>
                                         </div>
@@ -81,7 +177,7 @@
                                 
                                 <div class="instruction-item mb-3">
                                     <div class="d-flex align-items-start">
-                                        <span class="instruction-number">2</span>
+                                        <span class="instruction-number">3</span>
                                         <div class="instruction-content">
                                             <h6 class="instruction-title">خمن السعر</h6>
                                             <p class="instruction-text">ادخل تخمينك لسعر المنتج بالريال السعودي</p>
@@ -93,7 +189,7 @@
                             <div class="col-md-6">
                                 <div class="instruction-item mb-3">
                                     <div class="d-flex align-items-start">
-                                        <span class="instruction-number">3</span>
+                                        <span class="instruction-number">4</span>
                                         <div class="instruction-content">
                                             <h6 class="instruction-title">تابع التلميحات</h6>
                                             <p class="instruction-text">استخدم الأسهم لمعرفة إذا كان السعر أعلى أم أقل</p>
@@ -103,7 +199,7 @@
                                 
                                 <div class="instruction-item mb-3">
                                     <div class="d-flex align-items-start">
-                                        <span class="instruction-number">4</span>
+                                        <span class="instruction-number">5</span>
                                         <div class="instruction-content">
                                             <h6 class="instruction-title">اربح في 6 محاولات</h6>
                                             <p class="instruction-text">لديك 6 محاولات للوصول للسعر الصحيح</p>
