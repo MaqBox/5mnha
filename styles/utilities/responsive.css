@@ -1,0 +1,109 @@
+/* Responsive adjustments for categories */
+@media (max-width: 768px) {
+    .category-box {
+        padding: 1.5rem 1rem;
+        min-height: 160px;
+    }
+    
+    .category-icon {
+        font-size: 2.5rem;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+    }
+    
+    .category-description {
+        font-size: 0.85rem;
+    }
+    
+    .mode-box {
+        padding: 1.5rem 1rem;
+        min-height: 160px;
+    }
+    
+    .mode-icon {
+        font-size: 2.5rem;
+    }
+    
+    .mode-title {
+        font-size: 1.1rem;
+    }
+    
+    .mode-description {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-box {
+        padding: 1.25rem 0.75rem;
+        min-height: 140px;
+    }
+    
+    .category-icon {
+        font-size: 2rem;
+    }
+    
+    .category-title {
+        font-size: 1rem;
+    }
+    
+    .mode-box {
+        padding: 1.25rem 0.75rem;
+        min-height: 140px;
+    }
+    
+    .mode-icon {
+        font-size: 2rem;
+    }
+    
+    .mode-title {
+        font-size: 1rem;
+    }
+    
+    .instructions-panel {
+        padding: 1rem;
+    }
+    
+    .instruction-number {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+    
+    .instruction-title {
+        font-size: 0.9rem;
+    }
+    
+    .instruction-text {
+        font-size: 0.8rem;
+    }
+    
+    .instructions-content .instruction-number {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+    
+    .instructions-content .instruction-title {
+        font-size: 0.9rem;
+    }
+    
+    .instructions-content .instruction-text {
+        font-size: 0.8rem;
+    }
+    
+    .instructions-content .tips-section {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .instructions-panel {
+        position: static;
+        margin-top: 2rem;
+    }
+}

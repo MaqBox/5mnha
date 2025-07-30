@@ -1,0 +1,23 @@
+.game-container {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.category-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.instructions-panel {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}

@@ -1,0 +1,100 @@
+/* Modal Styles */
+.modal-content {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+}
+
+.modal-header {
+    border-bottom-color: var(--border-color);
+}
+
+.modal-header .btn-close {
+    filter: var(--text-color) brightness(0.8);
+    margin: -0.5rem auto -0.5rem -0.5rem;
+}
+
+/* Instructions Modal Styles */
+.instructions-content .instruction-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s;
+}
+
+.instructions-content .instruction-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.instructions-content .instruction-number {
+    background-color: var(--button-bg);
+    color: white;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-left: 0.75rem;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.instructions-content .instruction-content {
+    flex: 1;
+}
+
+.instructions-content .instruction-title {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.instructions-content .instruction-text {
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.instructions-content .tips-section {
+    background-color: rgba(13, 110, 253, 0.1);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.instructions-content .tips-title {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.instructions-content .tip-item {
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+/* History Modal Styles */
+.list-group-item {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    text-align: right;
+}
+
+.list-group-item:hover {
+    background-color: var(--guess-bg);
+}
+
+.list-group-item.active {
+    background-color: var(--button-bg);
+    border-color: var(--button-bg);
+}
+
+.list-group-item .bi {
+    font-size: 1.2rem;
+}

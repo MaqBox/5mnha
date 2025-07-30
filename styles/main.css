@@ -1,0 +1,28 @@
+/* CSS Architecture - Main Entry Point */
+
+/* 1. Variables and Configuration */
+@import 'variables.css';
+
+/* 2. Base Styles */
+@import 'base.css';
+
+/* 3. Layout Components */
+@import 'layout/containers.css';
+@import 'layout/header.css';
+
+/* 4. UI Components */
+@import 'components/buttons.css';
+@import 'components/forms.css';
+@import 'components/game.css';
+@import 'components/modals.css';
+
+/* 5. Page-Specific Styles */
+@import 'pages/mode-selection.css';
+@import 'pages/category-selection.css';
+@import 'pages/game-screen.css';
+@import 'pages/comparison-mode.css';
+
+/* 6. Utilities */
+@import 'utilities/animations.css';
+@import 'utilities/responsive.css';
+@import 'utilities/rtl.css';

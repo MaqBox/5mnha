@@ -10,20 +10,125 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Replace the existing styles.css link with: -->
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
 </head>
 <body class="text-theme">
     <div class="container py-5">
-        <!-- Category Selection Screen -->
-        <div id="category-selection" class="category-container">
+        <!-- Mode Selection Screen -->
+        <div id="mode-selection" class="mode-container">
             <div class="header mb-4">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <button id="help-button-category" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                    <button id="help-button-mode" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
                         <i class="bi bi-question-circle"></i>
                     </button>
                     <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
                     <div style="width: 40px;"></div> <!-- Spacer for centering -->
+                </div>
+            </div>
+            
+            <div class="text-center mb-4">
+                <h2 class="h3 text-theme mb-3">اختر نمط اللعب</h2>
+                <p class="text-muted">اختر الطريقة التي تريد اللعب بها</p>
+            </div>
+            
+            <div class="row g-3 justify-content-center">
+                <!-- Existing modes -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="category">
+                        <div class="mode-icon">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                        </div>
+                        <h4 class="mode-title">اللعب بالفئات</h4>
+                        <p class="mode-description">اختر فئة معينة من المنتجات للعب بها</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="random">
+                        <div class="mode-icon">
+                            <i class="bi bi-shuffle"></i>
+                        </div>
+                        <h4 class="mode-title">اللعب العشوائي</h4>
+                        <p class="mode-description">العب مع منتجات عشوائية من جميع الفئات</p>
+                    </div>
+                </div>
+                
+                <!-- New modes -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="comparison">
+                        <div class="mode-icon">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </div>
+                        <h4 class="mode-title">أيهما أغلى؟</h4>
+                        <p class="mode-description">قارن بين منتجين واختر الأغلى</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="timed">
+                        <div class="mode-icon">
+                            <i class="bi bi-stopwatch"></i>
+                        </div>
+                        <h4 class="mode-title">السرعة والدقة</h4>
+                        <p class="mode-description">خمن السعر في 20 ثانية!</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="higher-lower">
+                        <div class="mode-icon">
+                            <i class="bi bi-arrow-up-down"></i>
+                        </div>
+                        <h4 class="mode-title">أعلى أم أقل</h4>
+                        <p class="mode-description">خمن إذا كان السعر أعلى أم أقل</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="memory-match">
+                        <div class="mode-icon">
+                            <i class="bi bi-puzzle"></i>
+                        </div>
+                        <h4 class="mode-title">ذاكرة الأسعار</h4>
+                        <p class="mode-description">احفظ الأسعار وطابقها مع المنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="basket">
+                        <div class="mode-icon">
+                            <i class="bi bi-basket"></i>
+                        </div>
+                        <h4 class="mode-title">إجمالي السلة</h4>
+                        <p class="mode-description">احسب المجموع الكلي للمنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="puzzle">
+                        <div class="mode-icon">
+                            <i class="bi bi-lock"></i>
+                        </div>
+                        <h4 class="mode-title">صندوق الألغاز</h4>
+                        <p class="mode-description">استنتج السعر من الأدلة المنطقية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Selection Screen -->
+        <div id="category-selection" class="category-container" style="display: none;">
+            <div class="header mb-4">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <button id="back-to-modes" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-arrow-right"></i> العودة للأنماط
+                    </button>
+                    <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+                    <button id="help-button-category" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
                 </div>
             </div>
             
@@ -306,6 +411,183 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Replace the current script tag -->
+    <!-- Add this after the existing game screen content -->
+    <!-- Comparison Mode Screen -->
+    <div id="comparison-screen" class="screen d-none">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <!-- Header -->
+                <div class="col-12">
+                    <div class="game-header d-flex justify-content-between align-items-center mb-4">
+                        <button id="back-to-modes-comparison" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-right-circle ms-2"></i>
+                            العودة للأنماط
+                        </button>
+                        <div class="game-info text-center">
+                            <h2 class="mb-1">أيهما أغلى؟</h2>
+                            <div class="score-info">
+                                <span class="badge bg-primary fs-6">
+                                    النقاط: <span id="comparison-score">0</span>
+                                </span>
+                                <span class="badge bg-secondary fs-6 ms-2">
+                                    الجولة: <span id="comparison-round">1</span> / <span id="comparison-max-rounds">10</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="width: 120px;"></div> <!-- Spacer for centering -->
+                    </div>
+                </div>
+                
+                <!-- Comparison Products -->
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10"> <!-- Changed back to col-md-10 for closer spacing -->
+                            <div class="comparison-container">
+                                <div class="row g-3 align-items-center"> <!-- Reduced gap from g-5 to g-3 -->
+                                    <!-- Product 1 -->
+                                    <div class="col-md-5">
+                                        <div class="comparison-product" id="comparison-product-1" data-product="product1">
+                                            <div class="product-card h-100">
+                                                <div class="product-image-container">
+                                                    <img id="comparison-image-1" src="" alt="" class="product-image" />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4 id="comparison-name-1" class="product-name"></h4>
+                                                    <button class="btn btn-primary btn-lg w-100 comparison-choice" data-choice="product1">
+                                                        <i class="bi bi-hand-index-thumb"></i>
+                                                        هذا أغلى
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- VS Divider - Mobile -->
+                                    <div class="col-12 d-md-none text-center my-2">
+                                        <div class="vs-divider">
+                                            <span class="vs-badge-custom fs-4">VS</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- VS Divider - Desktop -->
+                                    <div class="col-md-2 d-none d-md-flex justify-content-center align-items-center">
+                                        <div class="vs-divider-desktop">
+                                            <span class="vs-badge-custom fs-3">VS</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product 2 -->
+                                    <div class="col-md-5">
+                                        <div class="comparison-product" id="comparison-product-2" data-product="product2">
+                                            <div class="product-card h-100">
+                                                <div class="product-image-container">
+                                                    <img id="comparison-image-2" src="" alt="" class="product-image" />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4 id="comparison-name-2" class="product-name"></h4>
+                                                    <button class="btn btn-primary btn-lg w-100 comparison-choice" data-choice="product2">
+                                                        <i class="bi bi-hand-index-thumb"></i>
+                                                        هذا أغلى
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Result Modal -->
+    <div class="modal fade" id="comparisonResultModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="comparisonResultTitle">نتيجة المقارنة</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="comparisonResultContent">
+                        <div class="result-icon mb-3">
+                            <i id="comparisonResultIcon" class="display-1"></i>
+                        </div>
+                        <p id="comparisonResultMessage" class="fs-5 mb-3"></p>
+                        <div class="price-reveal">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="price-card">
+                                        <img id="resultImage1" src="" alt="" class="img-fluid mb-2" style="max-height: 80px;" />
+                                        <h6 id="resultName1"></h6>
+                                        <span class="badge bg-primary fs-6" id="resultPrice1"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="price-card">
+                                        <img id="resultImage2" src="" alt="" class="img-fluid mb-2" style="max-height: 80px;" />
+                                        <h6 id="resultName2"></h6>
+                                        <span class="badge bg-primary fs-6" id="resultPrice2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" id="nextComparisonBtn">المقارنة التالية</button>
+                    <button type="button" class="btn btn-success d-none" id="viewFinalScoreBtn">عرض النتيجة النهائية</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Score Modal -->
+    <div class="modal fade" id="finalScoreModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">النتيجة النهائية</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="final-score-content">
+                        <div class="score-display mb-4">
+                            <div class="display-3 text-primary" id="finalScoreDisplay">0/10</div>
+                            <p class="fs-5" id="finalScoreMessage">أحسنت!</p>
+                        </div>
+                        <div class="score-breakdown">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="stat-number text-success" id="correctAnswers">0</div>
+                                        <div class="stat-label">إجابات صحيحة</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="stat-number text-danger" id="wrongAnswers">0</div>
+                                        <div class="stat-label">إجابات خاطئة</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="stat-number text-primary" id="accuracyPercentage">0%</div>
+                                        <div class="stat-label">نسبة الدقة</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" id="playAgainBtn">العب مرة أخرى</button>
+                    <button type="button" class="btn btn-outline-secondary" id="backToModesFromFinal">العودة للأنماط</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

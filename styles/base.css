@@ -1,0 +1,40 @@
+body {
+    font-family: 'Noto Sans Arabic', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+}
+
+.text-theme {
+    color: var(--text-color) !important;
+}
+
+/* Override Bootstrap text colors */
+.text-muted {
+    color: var(--secondary-text) !important;
+}
+
+/* Ensure all text elements inherit theme colors */
+h1, h2, h3, h4, h5, h6, p, span, div {
+    color: inherit;
+    text-align: right;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--container-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-text);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color);
+}
