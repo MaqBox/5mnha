@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خمنها</title>
+    <!-- Google Fonts - Noto Sans Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Replace the existing styles.css link with: -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+</head>
+<body class="text-theme">
+    <div class="container py-5">
+        <!-- Mode Selection Screen -->
+        <div id="mode-selection" class="mode-container">
+            <div class="header mb-4">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <button id="help-button-mode" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
+                    <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+                    <div style="width: 40px;"></div> <!-- Spacer for centering -->
+                </div>
+            </div>
+            
+            <div class="text-center mb-4">
+                <h2 class="h3 text-theme mb-3">اختر نمط اللعب</h2>
+                <p class="text-muted">اختر الطريقة التي تريد اللعب بها</p>
+            </div>
+            
+            <div class="row g-3 justify-content-center">
+                <!-- Existing modes -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="category">
+                        <div class="mode-icon">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                        </div>
+                        <h4 class="mode-title">اللعب بالفئات</h4>
+                        <p class="mode-description">اختر فئة معينة من المنتجات للعب بها</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="random">
+                        <div class="mode-icon">
+                            <i class="bi bi-shuffle"></i>
+                        </div>
+                        <h4 class="mode-title">اللعب العشوائي</h4>
+                        <p class="mode-description">العب مع منتجات عشوائية من جميع الفئات</p>
+                    </div>
+                </div>
+                
+                <!-- New modes -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="comparison">
+                        <div class="mode-icon">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </div>
+                        <h4 class="mode-title">أيهما أغلى؟</h4>
+                        <p class="mode-description">قارن بين منتجين واختر الأغلى</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="timed">
+                        <div class="mode-icon">
+                            <i class="bi bi-stopwatch"></i>
+                        </div>
+                        <h4 class="mode-title">السرعة والدقة</h4>
+                        <p class="mode-description">خمن السعر في 20 ثانية!</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="higher-lower">
+                        <div class="mode-icon">
+                            <i class="bi bi-arrow-up-down"></i>
+                        </div>
+                        <h4 class="mode-title">أعلى أم أقل</h4>
+                        <p class="mode-description">خمن إذا كان السعر أعلى أم أقل</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="memory-match">
+                        <div class="mode-icon">
+                            <i class="bi bi-puzzle"></i>
+                        </div>
+                        <h4 class="mode-title">ذاكرة الأسعار</h4>
+                        <p class="mode-description">احفظ الأسعار وطابقها مع المنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="basket">
+                        <div class="mode-icon">
+                            <i class="bi bi-basket"></i>
+                        </div>
+                        <h4 class="mode-title">إجمالي السلة</h4>
+                        <p class="mode-description">احسب المجموع الكلي للمنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="mode-box" data-mode="puzzle">
+                        <div class="mode-icon">
+                            <i class="bi bi-lock"></i>
+                        </div>
+                        <h4 class="mode-title">صندوق الألغاز</h4>
+                        <p class="mode-description">استنتج السعر من الأدلة المنطقية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Selection Screen -->
+        <div id="category-selection" class="category-container" style="display: none;">
+            <div class="header mb-4">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <button id="back-to-modes" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-arrow-right"></i> العودة للأنماط
+                    </button>
+                    <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+                    <button id="help-button-category" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center mb-4">
+                <h2 class="h3 text-theme mb-3">اختر الفئة</h2>
+                <p class="text-muted">اختر فئة المنتجات التي تريد اللعب بها</p>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="fresh-produce">
+                        <div class="category-icon">
+                            <i class="bi bi-apple"></i>
+                        </div>
+                        <h4 class="category-title">خضار وفواكه طازجة</h4>
+                        <p class="category-description">موز، طماطم، خيار، برتقال وغيرها</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="snacks-chocolates">
+                        <div class="category-icon">
+                            <i class="bi bi-emoji-smile"></i>
+                        </div>
+                        <h4 class="category-title">وجبات خفيفة وشوكولاتة</h4>
+                        <p class="category-description">شيبس، مكسرات، شوكولاتة وحلويات</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="canned-goods">
+                        <div class="category-icon">
+                            <i class="bi bi-archive"></i>
+                        </div>
+                        <h4 class="category-title">معلبات</h4>
+                        <p class="category-description">تونة، ذرة، طماطم معلبة وفول</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="basic-products">
+                        <div class="category-icon">
+                            <i class="bi bi-house"></i>
+                        </div>
+                        <h4 class="category-title">منتجات أساسية</h4>
+                        <p class="category-description">حليب، زيت، سكر ومواد أساسية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="personal-care">
+                        <div class="category-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h4 class="category-title">عناية شخصية</h4>
+                        <p class="category-description">معجون أسنان ومنتجات العناية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-box" data-category="frozen-foods">
+                        <div class="category-icon">
+                            <i class="bi bi-snow"></i>
+                        </div>
+                        <h4 class="category-title">أطعمة مجمدة</h4>
+                        <p class="category-description">قطع دجاج مجمدة ومنتجات مجمدة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Screen -->
+        <div id="game-screen" class="game-container" style="display: none;">
+            <div class="header mb-4">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <button id="back-to-categories" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-arrow-right"></i> العودة للفئات
+                    </button>
+                    <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+                    <button id="help-button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-image mb-4">
+                <!-- Add loading attribute -->
+                <img id="product-image" src="" alt="Product image" 
+                     class="img-fluid rounded shadow" 
+                     loading="lazy">
+            </div>
+            <h2 id="product-name" class="h3 mb-3 text-theme"></h2>
+            <p class="instructions text-muted mb-4">خمن سعر المنتج (بالريال السعودي)</p>
+            <div class="guess-container mb-4">
+                <!-- Guesses will be inserted here -->
+            </div>
+            <div class="input-container mb-4">
+                <div class="input-group">
+                    <button id="submit-guess" class="btn btn-primary btn-lg">
+                        <i class="bi bi-check-lg"></i> ارسل
+                    </button>
+                    <input type="number" id="guess-input" class="form-control form-control-lg" 
+                           placeholder="ادخل السعر بالريال السعودي..." 
+                           min="0" 
+                           step="1">
+                </div>
+            </div>
+            <div class="result mb-3 text-theme"></div>
+            <div class="attempts text-muted">
+                محاولات: <span id="current-attempt" class="fw-bold">0</span>/<span id="max-attempts" class="fw-bold">6</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Instructions Modal -->
+    <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="instructionsModalLabel">
+                        <i class="bi bi-info-circle me-2"></i>
+                        كيفية اللعب
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="instructions-content">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">1</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">اختر الفئة</h6>
+                                            <p class="instruction-text">اختر فئة المنتجات التي تريد اللعب بها</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">2</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">انظر إلى المنتج</h6>
+                                            <p class="instruction-text">تأمل صورة المنتج واقرأ اسمه بعناية</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">3</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">خمن السعر</h6>
+                                            <p class="instruction-text">ادخل تخمينك لسعر المنتج بالريال السعودي</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">4</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">تابع التلميحات</h6>
+                                            <p class="instruction-text">استخدم الأسهم لمعرفة إذا كان السعر أعلى أم أقل</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-item mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <span class="instruction-number">5</span>
+                                        <div class="instruction-content">
+                                            <h6 class="instruction-title">اربح في 6 محاولات</h6>
+                                            <p class="instruction-text">لديك 6 محاولات للوصول للسعر الصحيح</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="tips-section">
+                            <h6 class="tips-title mb-3">
+                                <i class="bi bi-lightbulb me-2"></i>
+                                نصائح مفيدة
+                            </h6>
+                            
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-arrow-up text-danger me-2"></i>
+                                        <span>السهم الأحمر يعني السعر أعلى</span>
+                                    </div>
+                                    
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-arrow-down text-success me-2"></i>
+                                        <span>السهم الأخضر يعني السعر أقل</span>
+                                    </div>
+                                    
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        <span>الدائرة الزرقاء تعني السعر صحيح</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="tip-item mb-2">
+                                        <i class="bi bi-calculator me-2"></i>
+                                        <span>فكر في أسعار المنتجات المشابهة</span>
+                                    </div>
+                                    
+                                    <div class="tip-item">
+                                        <i class="bi bi-coin text-warning me-2"></i>
+                                        <span>قواعد التقريب: ١٦.٥ = ١٧ (للأعلى) | ١٦.٤ = ١٦ (للأسفل)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">فهمت!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- History Modal -->
+    <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="historyModalLabel">تاريخ الألعاب</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="history-list" class="list-group">
+                        <!-- History items will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modal-image" src="" alt="Product image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game End Modal -->
+    <div class="modal fade" id="gameEndModal" tabindex="-1" aria-labelledby="gameEndModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="gameEndModalLabel">انتهت اللعبة</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center" id="gameEndModalBody">
+            <!-- Result message and correct price will be inserted here -->
+          </div>
+          <!-- Remove the modal-footer entirely -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Replace the current script tag -->
+    <!-- Add this after the existing game screen content -->
+    <!-- Comparison Mode Screen -->
+    <div id="comparison-screen" class="screen d-none">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <!-- Header -->
+                <div class="col-12">
+                    <div class="game-header d-flex justify-content-between align-items-center mb-4">
+                        <button id="back-to-modes-comparison" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-right-circle ms-2"></i>
+                            العودة للأنماط
+                        </button>
+                        <div class="game-info text-center">
+                            <h2 class="mb-1">أيهما أغلى؟</h2>
+                            <div class="score-info">
+                                <span class="badge bg-primary fs-6">
+                                    النقاط: <span id="comparison-score">0</span>
+                                </span>
+                                <span class="badge bg-secondary fs-6 ms-2">
+                                    الجولة: <span id="comparison-round">1</span> / <span id="comparison-max-rounds">10</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="width: 120px;"></div> <!-- Spacer for centering -->
+                    </div>
+                </div>
+                
+                <!-- Comparison Products -->
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10"> <!-- Changed back to col-md-10 for closer spacing -->
+                            <div class="comparison-container">
+                                <div class="row g-3 align-items-center"> <!-- Reduced gap from g-5 to g-3 -->
+                                    <!-- Product 1 -->
+                                    <div class="col-md-5">
+                                        <div class="comparison-product" id="comparison-product-1" data-product="product1">
+                                            <div class="product-card h-100">
+                                                <div class="product-image-container">
+                                                    <img id="comparison-image-1" src="" alt="" class="product-image" />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4 id="comparison-name-1" class="product-name"></h4>
+                                                    <button class="btn btn-primary btn-lg w-100 comparison-choice" data-choice="product1">
+                                                        <i class="bi bi-hand-index-thumb"></i>
+                                                        هذا أغلى
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- VS Divider - Mobile -->
+                                    <div class="col-12 d-md-none text-center my-2">
+                                        <div class="vs-divider">
+                                            <span class="vs-badge-custom fs-4">VS</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- VS Divider - Desktop -->
+                                    <div class="col-md-2 d-none d-md-flex justify-content-center align-items-center">
+                                        <div class="vs-divider-desktop">
+                                            <span class="vs-badge-custom fs-3">VS</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product 2 -->
+                                    <div class="col-md-5">
+                                        <div class="comparison-product" id="comparison-product-2" data-product="product2">
+                                            <div class="product-card h-100">
+                                                <div class="product-image-container">
+                                                    <img id="comparison-image-2" src="" alt="" class="product-image" />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4 id="comparison-name-2" class="product-name"></h4>
+                                                    <button class="btn btn-primary btn-lg w-100 comparison-choice" data-choice="product2">
+                                                        <i class="bi bi-hand-index-thumb"></i>
+                                                        هذا أغلى
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Result Modal -->
+    <div class="modal fade" id="comparisonResultModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="comparisonResultTitle">نتيجة المقارنة</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="comparisonResultContent">
+                        <div class="result-icon mb-3">
+                            <i id="comparisonResultIcon" class="display-1"></i>
+                        </div>
+                        <p id="comparisonResultMessage" class="fs-5 mb-3"></p>
+                        <div class="price-reveal">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="price-card">
+                                        <img id="resultImage1" src="" alt="" class="img-fluid mb-2" style="max-height: 80px;" />
+                                        <h6 id="resultName1"></h6>
+                                        <span class="badge bg-primary fs-6" id="resultPrice1"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="price-card">
+                                        <img id="resultImage2" src="" alt="" class="img-fluid mb-2" style="max-height: 80px;" />
+                                        <h6 id="resultName2"></h6>
+                                        <span class="badge bg-primary fs-6" id="resultPrice2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Score Modal -->
+    <div class="modal fade" id="finalScoreModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">النتيجة النهائية</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="final-score-content">
+                        <div class="score-display mb-4">
+                            <div class="display-3 text-primary" id="finalScoreDisplay">0/10</div>
+                            <p class="fs-5" id="finalScoreMessage">أحسنت!</p>
+                        </div>
+                        <div class="score-breakdown">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="stat-number text-success" id="correctAnswers">0</div>
+                                        <div class="stat-label">إجابات صحيحة</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="stat-number text-danger" id="wrongAnswers">0</div>
+                                        <div class="stat-label">إجابات خاطئة</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-card">
+                                        <div class="stat-number text-primary" id="accuracyPercentage">0%</div>
+                                        <div class="stat-label">نسبة الدقة</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" id="playAgainBtn">العب مرة أخرى</button>
+                    <button type="button" class="btn btn-outline-secondary" id="backToModesFromFinal">العودة للأنماط</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

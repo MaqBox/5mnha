@@ -1,0 +1,638 @@
+[
+  {
+    "name": "المراعي حليب كامل الدسم 1 لتر",
+    "price": 7,
+    "imageUrl": "images/milk.jpg",
+    "category": "basic-products"
+  },
+  {
+    "name": "الأسرة سكر أبيض 5 كجم",
+    "price": 14,
+    "imageUrl": "images/sugar.jpg",
+    "category": "basic-products"
+  },
+  {
+    "name": "نخلتين زيت نباتي",
+    "price": 17,
+    "imageUrl": "images/NAKHLATAIN VEG OIL.jpeg",
+    "category": "basic-products"
+  },
+  {
+    "name": "كولجيت معجون أسنان ",
+    "price": 19,
+    "imageUrl": "images/COLGATE TOOTHPASTE TOTAL ADVANCED WHITENING 75ML.jpg",
+    "category": "personal-care"
+  },
+  {
+    "name": "سيارا قطع دجاج ",
+    "price": 44,
+    "imageUrl": "images/SEARA CHICKEN NUGGETS 750G.jpg",
+    "category": "frozen-foods"
+  },
+  {
+    "name": "صن رينج وجبة جبنة خفيفة",
+    "price": 7,
+    "imageUrl": "images/SUN RING CHEESE SNACKS.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "تيفاني بريك ميني فن",
+    "price": 15,
+    "imageUrl": "images/TIFFANY BREAK MINI FUN.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "البطل شرائح بطاطس بالفلفل الحار",
+    "price": 5,
+    "imageUrl": "images/AL BATAL POTATO CHIPS CHILI.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "باجة مكسرات مشوية ",
+    "price": 51,
+    "imageUrl": "images/BAJA BARBEQUE MIXED.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "باجة كاجو مملح",
+    "price": 29,
+    "imageUrl": "images/BAJA CASHEW SALTED NUTS.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "باجة مكسرات ديلوكس",
+    "price": 51,
+    "imageUrl": "images/BAJA DELUXE MIXED.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": " كريسبي حروف",
+    "price": 5,
+    "imageUrl": "images/CRISPY LETTERS KETCHUP.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "دوريتوس جبنة ناتشو",
+    "price": 7,
+    "imageUrl": "images/DORITOS NACHO CHEESE.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": " أعواد بطاطس حارة",
+    "price": 4,
+    "imageUrl": "images/FAIRCO POTATO STIX HOT&SPICY.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "فيريرو رفاييلو شوكولاتة",
+    "price": 23,
+    "imageUrl": "images/FERRERO RAFFAELLO CHOCOLATE.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "فيريرو روشيه شوكولاتة",
+    "price": 57,
+    "imageUrl": "images/FERRERO ROCHER CHOCOLATE.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "هيرشيز كوكيز آند كريم",
+    "price": 5,
+    "imageUrl": "images/HERSHEYS COOKIES N CREAM BAR.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "كيندر بار شوكولاتة بالحليب",
+    "price": 9,
+    "imageUrl": "images/KINDER BAR MILK CHOCOLATE.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "كيندر جوي",
+    "price": 5,
+    "imageUrl": "images/KINDER JOY.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "كيت كات تشانكي",
+    "price": 5,
+    "imageUrl": "images/KIT KAT CHUNKY.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "إم آند إمز ميني ",
+    "price": 5,
+    "imageUrl": "images/M&MS MINIS TUBE.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": " ميني مشكل",
+    "price": 51,
+    "imageUrl": "images/MARS MIXED MINIS.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "أوزمو بيض الوجوه",
+    "price": 5,
+    "imageUrl": "images/OZMO EGG FACES.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "ريسز زبدة الفول السوداني",
+    "price": 5,
+    "imageUrl": "images/REESE'S PEANUT BUTTER CUP.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "صن رينج ",
+    "price": 49,
+    "imageUrl": "images/SUN RING CHEESE SNACK.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "تيفاني بريك ديلايت",
+    "price": 13,
+    "imageUrl": "images/TIFFANY BREAK DELIGHT.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "تيفاني بريك ويفر",
+    "price": 15,
+    "imageUrl": "images/TIFFANY BREAK WAFER.jpeg",
+    "category": "snacks-chocolates"
+  },
+  {
+    "name": "جودي ذرة حلوة كاملة 340 جرام",
+    "price": 7,
+    "imageUrl": "images/GOODY GLDN KRNL CORN WHL 340G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "تريفا تونة بالزيت النباتي 170 جرام",
+    "price": 7,
+    "imageUrl": "images/TREVA LM TUNA IN VEG OIL 170G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "تريفا تونة بالزيت النباتي 24×170 جرام",
+    "price": 154,
+    "imageUrl": "images/TREVA LM TUNA VEG OIL 24X170G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "ذرة حلوة كاملة 340 جرام",
+    "price": 5,
+    "imageUrl": "images/Whole Kernel Corn 340g.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "هناء طماطم مقشرة 400 جرام",
+    "price": 5,
+    "imageUrl": "images/HANAA PEELED TOMATOES 400G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "هناء طماطم مقشرة 24×400 جرام",
+    "price": 88,
+    "imageUrl": "images/HANAA PEELED TOMATOES 24X400G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "تونة لحم خفيف بزيت دوار الشمس 185 جرام",
+    "price": 8,
+    "imageUrl": "images/Light Meat Tuna in Sunflower Oil 185g.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "باندا ذرة حلوة 180 جرام",
+    "price": 5,
+    "imageUrl": "images/Panda Sweet Golden Corn 180gm.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "باندا ذرة حلوة 340 جرام",
+    "price": 6,
+    "imageUrl": "images/Panda Sweet Golden Corn 340gm.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "الوها تونة بالزيت النباتي 185 جرام",
+    "price": 9,
+    "imageUrl": "images/ALOHA LM TUNA IN VEGOIL 185G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "بليمز تونة بزيت دوار الشمس 170 جرام",
+    "price": 8,
+    "imageUrl": "images/PLYMS LM TUNA IN SUNFLOWER OIL 170G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "أمريكانا تونة بالزيت النباتي 170 جرام",
+    "price": 7,
+    "imageUrl": "images/AMERICANA LIGHT CHUNKS TUNA IN VEGETABLE OIL 170G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "كاليفورنيا جاردن فول مدمس 450 جرام",
+    "price": 4,
+    "imageUrl": "images/CALIFORNIA GARDEN FOUL MEDAMMES PLAIN 450G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "كاليفورنيا جاردن فول مدمس 24×450 جرام",
+    "price": 102,
+    "imageUrl": "images/CALIFORNIA GARDEN FOUL MEDAMMES PLN 24X450G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "الخير تونة بزيت دوار الشمس 185 جرام",
+    "price": 9,
+    "imageUrl": "images/ALKHAIR LM TUNA IN SF OIL185G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "جودي تونة بزيت دوار الشمس 185 جرام",
+    "price": 9,
+    "imageUrl": "images/GOODY LM TUNA IN SF OIL 185G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "أطلس حمص 580 جرام",
+    "price": 8,
+    "imageUrl": "images/ATLAS CHICK PEAS 580G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "الطائي طماطم مقشرة 400 جرام",
+    "price": 5,
+    "imageUrl": "images/AL TAIE PEELED TOMATO 400G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "الطائي طماطم مقشرة 24×400 جرام",
+    "price": 105,
+    "imageUrl": "images/AL TAIE PEELED TOMATO 24X400G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "رنا تونة صلبة بزيت دوار الشمس 185 جرام",
+    "price": 8,
+    "imageUrl": "images/RANA LM TUNA SOLID IN SF 185G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "جودي أناناس مقطع 567 جرام",
+    "price": 11,
+    "imageUrl": "images/GOODY PINEAPPLE SLICE 567G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "الخير تونة بزيت دوار الشمس 48×95 جرام",
+    "price": 265,
+    "imageUrl": "images/ALKHAIR LM TUNA IN SF48X95G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "الخير تونة بزيت دوار الشمس 95 جرام",
+    "price": 6,
+    "imageUrl": "images/ALKHAIR LM TUNA IN SF OIL 95G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "أمريكانا ذرة حلوة كاملة 400 جرام",
+    "price": 5,
+    "imageUrl": "images/AMERICANA WHOLE KERNEL SWEET CORN 400G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "هناء طماطم مقطعة 400 جرام",
+    "price": 5,
+    "imageUrl": "images/HANAA CHOPPED TOMATOES 400G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "جودي ذرة ذهبية كاملة 150 جرام",
+    "price": 5,
+    "imageUrl": "images/GOODY GOLDEN WHOLE KERNEL CORN 150G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "جودي تونة بالماء 185 جرام",
+    "price": 9,
+    "imageUrl": "images/GOODY LM TUNA IN WATER 185G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "باندا تونة لحم خفيف بالماء 80 جرام",
+    "price": 6,
+    "imageUrl": "images/Panda Tuna Light Meat In Water 80gm.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "جودي تونة تندرينا 185 جرام",
+    "price": 10,
+    "imageUrl": "images/GOODY TENDERINA FTUNA 185G.jpeg",
+    "category": "canned-goods"
+  },
+  {
+    "name": "موز 1 كيلو",
+    "price": 6,
+    "imageUrl": "images/Local Banana.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "بطاطس 1 كيلو",
+    "price": 2,
+    "imageUrl": "images/Fresh Potatoes.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "طماطم 1 كيلو",
+    "price": 8,
+    "imageUrl": "images/Fresh Tomatoes.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خيار 1 كيلو",
+    "price": 5,
+    "imageUrl": "images/Fresh Cucumber.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "بصل أحمر 1 كيلو",
+    "price": 3,
+    "imageUrl": "images/Fresh Red Onions.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "برتقال ابو صرة 1 كيلو",
+    "price": 7,
+    "imageUrl": "images/Navel Oranges.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "برتقال فالنسيا 1 كيلو",
+    "price": 6,
+    "imageUrl": "images/Valencia Oranges.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "ليمون 1 كيلو",
+    "price": 9,
+    "imageUrl": "images/Fresh Lemon.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "فلفل رومي اخضر 1 كيلو",
+    "price": 6,
+    "imageUrl": "images/Fresh Green Pepper.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "توت أزرق 125 جرام",
+    "price": 10,
+    "imageUrl": "images/Blueberries Clamshell (125g).jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "جزر أسترالي 1 كيلو",
+    "price": 6,
+    "imageUrl": "images/Fresh Australian Carrots.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خس روماني 1 كيلو",
+    "price": 9,
+    "imageUrl": "images/Fresh Roman Lettuce.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "باذنجان دائري 1 كيلو",
+    "price": 5,
+    "imageUrl": "images/Round Eggplant.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "تفاح أحمر 1 كيلو",
+    "price": 9,
+    "imageUrl": "images/Red Apple.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "كوسة 1 كيلو",
+    "price": 13,
+    "imageUrl": "images/Zuchini.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خس محلي 1 كيلو",
+    "price": 10,
+    "imageUrl": "images/Fresh Local Iceberg Lettuce.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "جزر محلي 1 كيلو",
+    "price": 5,
+    "imageUrl": "images/Local Nawami Carrots.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "توت أحمر دريسكولز 125 جرام",
+    "price": 17,
+    "imageUrl": "images/Driscoll's Red Raspberries (125g).jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "موز محلي 2 كيلو",
+    "price": 11,
+    "imageUrl": "images/Local Banana.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "موز محلي 3 كيلو",
+    "price": 17,
+    "imageUrl": "images/Local Banana.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "بطاطس 2 كيلو",
+    "price": 4,
+    "imageUrl": "images/Fresh Potatoes.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "بطاطس 3 كيلو",
+    "price": 6,
+    "imageUrl": "images/Fresh Potatoes.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "طماطم 2 كيلو",
+    "price": 16,
+    "imageUrl": "images/Fresh Tomatoes.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "طماطم 3 كيلو",
+    "price": 24,
+    "imageUrl": "images/Fresh Tomatoes.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خيار 2 كيلو",
+    "price": 10,
+    "imageUrl": "images/Fresh Cucumber.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خيار 3 كيلو",
+    "price": 15,
+    "imageUrl": "images/Fresh Cucumber.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "بصل أحمر 2 كيلو",
+    "price": 6,
+    "imageUrl": "images/Fresh Red Onions.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "بصل أحمر 3 كيلو",
+    "price": 9,
+    "imageUrl": "images/Fresh Red Onions.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "برتقال ابو صرة 2 كيلو",
+    "price": 14,
+    "imageUrl": "images/Navel Oranges.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "برتقال ابو صرة 3 كيلو",
+    "price": 21,
+    "imageUrl": "images/Navel Oranges.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "برتقال فالنسيا 2 كيلو",
+    "price": 12,
+    "imageUrl": "images/Valencia Oranges.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "برتقال فالنسيا 3 كيلو",
+    "price": 18,
+    "imageUrl": "images/Valencia Oranges.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "ليمون 2 كيلو",
+    "price": 18,
+    "imageUrl": "images/Fresh Lemon.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "ليمون 3 كيلو",
+    "price": 27,
+    "imageUrl": "images/Fresh Lemon.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "فلفل رومي اخضر 2 كيلو",
+    "price": 12,
+    "imageUrl": "images/Fresh Green Pepper.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "فلفل رومي اخضر  3 كيلو",
+    "price": 18,
+    "imageUrl": "images/Fresh Green Pepper.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "جزر أسترالي 2 كيلو",
+    "price": 11,
+    "imageUrl": "images/Fresh Australian Carrots.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "جزر أسترالي 3 كيلو",
+    "price": 17,
+    "imageUrl": "images/Fresh Australian Carrots.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خس روماني 2 كيلو",
+    "price": 18,
+    "imageUrl": "images/Fresh Roman Lettuce.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خس روماني 3 كيلو",
+    "price": 27,
+    "imageUrl": "images/Fresh Roman Lettuce.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "باذنجان دائري 2 كيلو",
+    "price": 10,
+    "imageUrl": "images/Round Eggplant.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "باذنجان دائري 3 كيلو",
+    "price": 15,
+    "imageUrl": "images/Round Eggplant.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "تفاح أحمر 2 كيلو",
+    "price": 18,
+    "imageUrl": "images/Red Apple.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "تفاح أحمر 3 كيلو",
+    "price": 27,
+    "imageUrl": "images/Red Apple.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "كوسة 2 كيلو",
+    "price": 26,
+    "imageUrl": "images/Zuchini.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "كوسة 3 كيلو",
+    "price": 39,
+    "imageUrl": "images/Zuchini.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خس محلي 2 كيلو",
+    "price": 20,
+    "imageUrl": "images/Fresh Local Iceberg Lettuce.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "خس محلي 3 كيلو",
+    "price": 30,
+    "imageUrl": "images/Fresh Local Iceberg Lettuce.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "جزر محلي 2 كيلو",
+    "price": 10,
+    "imageUrl": "images/Local Nawami Carrots.jpeg",
+    "category": "fresh-produce"
+  },
+  {
+    "name": "جزر محلي 3 كيلو",
+    "price": 15,
+    "imageUrl": "images/Local Nawami Carrots.jpeg",
+    "category": "fresh-produce"
+  }
+]
