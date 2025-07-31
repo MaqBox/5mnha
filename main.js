@@ -109,9 +109,6 @@ function setupModeSelection() {
 function setupComparisonMode() {
     const backToModesBtn = document.getElementById('back-to-modes-comparison');
     const comparisonChoices = document.querySelectorAll('.comparison-choice');
-    // Remove these button references since we're removing the buttons
-    // const nextComparisonBtn = document.getElementById('nextComparisonBtn');
-    // const viewFinalScoreBtn = document.getElementById('viewFinalScoreBtn');
     const playAgainBtn = document.getElementById('playAgainBtn');
     const backToModesFromFinal = document.getElementById('backToModesFromFinal');
     
@@ -128,6 +125,31 @@ function setupComparisonMode() {
         });
     });
     
+    // Add click functionality to comparison images
+    const comparisonImage1 = document.getElementById('comparison-image-1');
+    const comparisonImage2 = document.getElementById('comparison-image-2');
+    
+    if (comparisonImage1) {
+        comparisonImage1.addEventListener('click', function() {
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = this.src;
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+        });
+    }
+    
+    if (comparisonImage2) {
+        comparisonImage2.addEventListener('click', function() {
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = this.src;
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+        });
+    }
+    
+    // Remove these button references since we're removing the buttons
+    // const nextComparisonBtn = document.getElementById('nextComparisonBtn');
+    // const viewFinalScoreBtn = document.getElementById('viewFinalScoreBtn');
     // Remove the button event listeners since we're removing the buttons
     // if (nextComparisonBtn) { ... }
     // if (viewFinalScoreBtn) { ... }

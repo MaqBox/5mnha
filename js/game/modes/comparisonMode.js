@@ -20,21 +20,48 @@ export function generateComparison() {
         throw new Error('Need at least 2 products for comparison mode');
     }
     
-    // Get two different random products
+    // Get two different random products with different prices
     let product1Index = getRandomProductIndex(products);
     let product2Index;
+    let attempts = 0;
+    const maxAttempts = products.length * 2; // Prevent infinite loop
     
     do {
         product2Index = getRandomProductIndex(products);
-    } while (product2Index === product1Index);
+        attempts++;
+        
+        // If we've tried too many times, just use any different product
+        if (attempts > maxAttempts) {
+            break;
+        }
+    } while (product2Index === product1Index || products[product1Index].price === products[product2Index].price);
     
     const product1 = products[product1Index];
     const product2 = products[product2Index];
     
+    // If products still have the same price after max attempts, find a different one
+    if (product1.price === product2.price) {
+        // Find a product with a different price
+        for (let i = 0; i < products.length; i++) {
+            if (i !== product1Index && products[i].price !== product1.price) {
+                product2Index = i;
+                break;
+            }
+        }
+    }
+    
+    const finalProduct1 = products[product1Index];
+    const finalProduct2 = products[product2Index];
+    
+    // If we still can't find products with different prices, throw an error
+    if (finalProduct1.price === finalProduct2.price) {
+        throw new Error('Cannot find products with different prices for comparison');
+    }
+    
     currentComparison = {
-        product1,
-        product2,
-        correctAnswer: product1.price > product2.price ? 'product1' : 'product2'
+        product1: finalProduct1,
+        product2: finalProduct2,
+        correctAnswer: finalProduct1.price > finalProduct2.price ? 'product1' : 'product2'
     };
     
     comparisonRound++;

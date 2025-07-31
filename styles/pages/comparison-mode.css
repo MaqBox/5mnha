@@ -2,7 +2,7 @@
 .comparison-container {
     position: relative;
     padding: 1.5rem 0; /* Reduced from 2rem */
-    max-width: 800px; /* Add max-width to limit container size */
+    max-width: 1000px; /* Increased from 800px (25% increase) */
     margin: 0 auto; /* Center the container */
 }
 
@@ -10,46 +10,52 @@
     background: var(--container-bg);
     border-radius: 15px;
     box-shadow: 0 4px 15px var(--shadow-color);
-    padding: 1rem; /* Reduced from 1.5rem */
+    padding: 1.25rem; /* Increased from 1rem (25% increase) */
     transition: all 0.3s ease;
     border: 3px solid var(--border-color);
-    max-width: 350px; /* Limit card width */
+    max-width: 437.5px; /* Increased from 350px (25% increase) */
     margin: 0 auto; /* Center the cards */
 }
 
 .product-image-container {
-    height: 160px; /* Reduced from 200px */
+    height: 200px; /* Increased from 160px (25% increase) */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.8rem; /* Reduced from 1rem */
+    margin-bottom: 1rem; /* Increased from 0.8rem (25% increase) */
     background: var(--guess-bg);
     border-radius: 10px;
     border: 1px solid var(--border-color);
 }
 
 .product-image {
-    max-height: 140px; /* Reduced from 180px */
+    max-height: 175px; /* Increased from 140px (25% increase) */
     max-width: 100%;
     object-fit: contain;
+    cursor: pointer; /* Add cursor pointer to indicate clickability */
+    transition: transform 0.3s; /* Add transition for hover effect */
+}
+
+.product-image:hover {
+    transform: scale(1.05); /* Add hover effect like the original mode */
 }
 
 .product-name {
-    font-size: 1rem; /* Reduced from 1.1rem */
+    font-size: 1.25rem; /* Increased from 1rem (25% increase) */
     font-weight: 600;
-    margin-bottom: 0.8rem; /* Reduced from 1rem */
+    margin-bottom: 1rem; /* Increased from 0.8rem (25% increase) */
     text-align: center;
     color: var(--text-color);
-    min-height: 2rem; /* Reduced from 2.5rem */
+    min-height: 2.5rem; /* Increased from 2rem (25% increase) */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .comparison-choice {
-    font-size: 1rem; /* Reduced from 1.1rem */
+    font-size: 1.25rem; /* Increased from 1rem (25% increase) */
     font-weight: 600;
-    padding: 0.6rem 0.8rem; /* Reduced from 0.75rem 1rem */
+    padding: 0.75rem 1rem; /* Increased from 0.6rem 0.8rem (25% increase) */
     border-radius: 10px;
     transition: all 0.3s ease;
     background: var(--button-bg);
@@ -61,47 +67,47 @@
 @media (max-width: 768px) {
     .comparison-container {
         max-width: 100%;
-        padding: 1rem 0;
+        padding: 1.25rem 0; /* Increased from 1rem (25% increase) */
     }
     
     .product-card {
-        padding: 0.8rem; /* Further reduced */
-        max-width: 280px; /* Smaller on mobile */
+        padding: 1rem; /* Increased from 0.8rem (25% increase) */
+        max-width: 350px; /* Increased from 280px (25% increase) */
     }
     
     .product-image-container {
-        height: 120px; /* Further reduced from 150px */
+        height: 150px; /* Increased from 120px (25% increase) */
     }
     
     .product-image {
-        max-height: 100px; /* Further reduced from 130px */
+        max-height: 125px; /* Increased from 100px (25% increase) */
     }
     
     .product-name {
-        font-size: 0.9rem;
-        min-height: 1.8rem;
-        margin-bottom: 0.6rem;
+        font-size: 1.125rem; /* Increased from 0.9rem (25% increase) */
+        min-height: 2.25rem; /* Increased from 1.8rem (25% increase) */
+        margin-bottom: 0.75rem; /* Increased from 0.6rem (25% increase) */
     }
     
     .comparison-choice {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.6rem;
+        font-size: 1.125rem; /* Increased from 0.9rem (25% increase) */
+        padding: 0.625rem 0.75rem; /* Increased from 0.5rem 0.6rem (25% increase) */
     }
 }
 
 /* Additional size reduction for very small screens */
 @media (max-width: 480px) {
     .product-card {
-        max-width: 250px;
-        padding: 0.6rem;
+        max-width: 312.5px; /* Increased from 250px (25% increase) */
+        padding: 0.75rem; /* Increased from 0.6rem (25% increase) */
     }
     
     .product-image-container {
-        height: 100px;
+        height: 125px; /* Increased from 100px (25% increase) */
     }
     
     .product-image {
-        max-height: 80px;
+        max-height: 100px; /* Increased from 80px (25% increase) */
     }
 }
 
@@ -347,13 +353,12 @@
     opacity: 0.6;
     pointer-events: none;
 }
-
 /* Enhanced comparison container with better spacing */
 /* Adjusted comparison container */
 .comparison-container {
     position: relative;
-    padding: 2rem 0;
-    max-width: 900px; /* Reduced from 1000px */
+    padding: 2.5rem 0; /* Increased from 2rem (25% increase) */
+    max-width: 1125px; /* Increased from 900px (25% increase) */
     margin: 0 auto;
 }
 
@@ -362,10 +367,10 @@
     background: var(--container-bg);
     border-radius: 15px;
     box-shadow: 0 4px 15px var(--shadow-color);
-    padding: 1.5rem;
+    padding: 1.875rem; /* Increased from 1.5rem (25% increase) */
     transition: all 0.3s ease;
     border: 3px solid var(--border-color);
-    margin: 0 0.5rem; /* Reduced horizontal margin */
+    margin: 0 0.625rem; /* Increased from 0.5rem (25% increase) */
 }
 
 /* Fixed VS divider for desktop */
