@@ -1,0 +1,86 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <!-- Header -->
+        <div class="col-12">
+            <div class="game-header d-flex justify-content-between align-items-center mb-4">
+                <button id="back-to-modes-comparison" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-right-circle ms-2"></i>
+                    العودة للأنماط
+                </button>
+                <div class="game-info text-center">
+                    <h2 class="mb-1">أيهما أغلى؟</h2>
+                    <div class="score-info">
+                        <span class="badge bg-primary fs-6">
+                            النقاط: <span id="comparison-score">0</span>
+                        </span>
+                        <span class="badge bg-secondary fs-6 ms-2">
+                            الجولة: <span id="comparison-round">1</span> / <span id="comparison-max-rounds">10</span>
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 120px;"></div> <!-- Spacer for centering -->
+            </div>
+        </div>
+        
+        <!-- Comparison Products -->
+        <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-md-10"> <!-- Changed back to col-md-10 for closer spacing -->
+                    <div class="comparison-container">
+                        <div class="row g-3 align-items-center"> <!-- Reduced gap from g-5 to g-3 -->
+                            <!-- Product 1 -->
+                            <div class="col-md-5">
+                                <div class="comparison-product" id="comparison-product-1" data-product="product1">
+                                    <div class="product-card h-100">
+                                        <div class="product-image-container">
+                                            <img id="comparison-image-1" src="" alt="" class="product-image" />
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 id="comparison-name-1" class="product-name"></h4>
+                                            <button class="btn btn-primary btn-lg w-100 comparison-choice" data-choice="product1">
+                                                <i class="bi bi-hand-index-thumb"></i>
+                                                هذا أغلى
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- VS Divider - Mobile -->
+                            <div class="col-12 d-md-none text-center my-2">
+                                <div class="vs-divider">
+                                    <span class="vs-badge-custom fs-4">VS</span>
+                                </div>
+                            </div>
+                            
+                            <!-- VS Divider - Desktop -->
+                            <div class="col-md-2 d-none d-md-flex justify-content-center align-items-center">
+                                <div class="vs-divider-desktop">
+                                    <span class="vs-badge-custom fs-3">VS</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 2 -->
+                            <div class="col-md-5">
+                                <div class="comparison-product" id="comparison-product-2" data-product="product2">
+                                    <div class="product-card h-100">
+                                        <div class="product-image-container">
+                                            <img id="comparison-image-2" src="" alt="" class="product-image" />
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 id="comparison-name-2" class="product-name"></h4>
+                                            <button class="btn btn-primary btn-lg w-100 comparison-choice" data-choice="product2">
+                                                <i class="bi bi-hand-index-thumb"></i>
+                                                هذا أغلى
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

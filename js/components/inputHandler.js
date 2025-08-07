@@ -2,6 +2,12 @@
 import { guessInput } from './uiManager.js';
 
 export function setupInputValidation() {
+    // Check if guessInput exists before adding event listeners
+    if (!guessInput) {
+        console.error('Error: guessInput element not found');
+        return;
+    }
+    
     // Enhanced input event listener to allow only whole numbers (no decimals)
     guessInput.addEventListener('input', (event) => {
         const value = event.target.value;

@@ -48,3 +48,7 @@
     margin-bottom: 0;
     line-height: 1.4;
 }
+.mode-box[data-mode="higher-lower"] .mode-icon i {
+    font-size: 3rem;
+    color: var(--button-bg);
+}

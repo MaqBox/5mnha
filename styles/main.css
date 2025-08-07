@@ -21,6 +21,7 @@
 @import 'pages/category-selection.css';
 @import 'pages/game-screen.css';
 @import 'pages/comparison-mode.css';
+@import 'pages/time-mode.css';
 
 /* 6. Utilities */
 @import 'utilities/animations.css';

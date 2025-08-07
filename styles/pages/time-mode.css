@@ -1,0 +1,549 @@
+/* Time Mode Specific Styles */
+
+/* Circular Timer Styles */
+.timer-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Timer and Score Container Layout */
+.timer-score-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.circular-timer {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+}
+
+.score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--guess-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-width: 120px;
+    transition: all 0.3s ease;
+}
+
+.score-display:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--button-bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .timer-score-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .score-display {
+        padding: 1rem;
+        min-width: 100px;
+    }
+}
+.timer-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.timer-svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.timer-background {
+    fill: none;
+    stroke: var(--guess-bg);
+    stroke-width: 8;
+}
+.circular-timer-small .timer-svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.circular-timer-small .timer-background {
+    fill: none;
+    stroke: var(--guess-bg);
+    stroke-width: 8;
+}
+
+.circular-timer-small .timer-progress {
+    fill: none;
+    stroke: var(--button-bg);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.circular-timer-small .timer-progress.warning {
+    stroke: #ffc107;
+    animation: pulse-warning-circle 1s infinite;
+}
+
+.circular-timer-small .timer-progress.danger {
+    stroke: #dc3545;
+    animation: pulse-danger-circle 0.5s infinite;
+}
+.timer-progress {
+    fill: none;
+    stroke: linear-gradient(90deg, #28a745, #20c997, #17a2b8);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 283; /* 2 * PI * 45 (radius) */
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer-progress.warning {
+    stroke: linear-gradient(90deg, #ffc107, #fd7e14);
+    animation: pulse-warning-circle 1s infinite;
+}
+
+.timer-progress.danger {
+    stroke: linear-gradient(90deg, #dc3545, #e74c3c);
+    animation: pulse-danger-circle 0.5s infinite;
+}
+
+@keyframes pulse-warning-circle {
+    0%, 100% { stroke-opacity: 1; }
+    50% { stroke-opacity: 0.7; }
+}
+
+@keyframes pulse-danger-circle {
+    0%, 100% { stroke-opacity: 1; }
+    50% { stroke-opacity: 0.8; }
+}
+
+.timer-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-status-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Keep existing styles below this line */
+.timer-progress-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timer-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--guess-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.timer-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #20c997, #17a2b8);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.timer-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Warning states for progress bar */
+.timer-progress-fill.warning {
+    background: linear-gradient(90deg, #ffc107, #fd7e14);
+    animation: pulse-warning-bar 1s infinite;
+}
+
+.timer-progress-fill.danger {
+    background: linear-gradient(90deg, #dc3545, #e74c3c);
+    animation: pulse-danger-bar 0.5s infinite;
+}
+
+@keyframes pulse-warning-bar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes pulse-danger-bar {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(1.1); }
+}
+
+
+/* Time Mode UI Container */
+.time-mode-ui {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--container-bg);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Timer Card */
+.timer-card {
+    background: linear-gradient(135deg, var(--guess-bg) 0%, rgba(13, 110, 253, 0.1) 100%);
+    border: 2px solid var(--button-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.timer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.1), transparent);
+    animation: card-shimmer 3s infinite;
+}
+
+@keyframes card-shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.timer-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.timer-icon {
+    font-size: 1.5rem;
+    animation: tick 1s infinite;
+}
+
+@keyframes tick {
+    0%, 50% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Time Mode Stat Cards */
+.time-mode-ui .stat-card {
+    background: var(--guess-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.time-mode-ui .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--button-bg);
+}
+
+/* Enhanced Timer Numbers */
+.time-mode-ui .stat-number {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Timer specific styling */
+#time-remaining {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, var(--text-color), var(--button-bg));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Enhanced Warning colors for timer */
+#time-remaining.text-warning {
+    background: linear-gradient(45deg, #ffc107, #fd7e14);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse-warning 1s infinite;
+}
+
+#time-remaining.text-danger {
+    background: linear-gradient(45deg, #dc3545, #e74c3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse-danger 0.5s infinite;
+}
+
+/* Score highlighting */
+#time-mode-score {
+    background: linear-gradient(45deg, var(--button-bg), #20c997);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Time Mode Labels */
+.time-mode-ui .stat-label {
+    font-size: 0.95rem;
+    color: var(--secondary-text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced Pulse animations */
+@keyframes pulse-warning {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+@keyframes pulse-danger {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+/* Responsive adjustments for time mode */
+@media (max-width: 768px) {
+    .time-mode-ui {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .timer-progress-bar {
+        height: 6px;
+    }
+    
+    .time-mode-ui .stat-card {
+        padding: 1rem 0.75rem;
+    }
+    
+    .time-mode-ui .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .timer-icon {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .time-mode-ui .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .time-mode-ui .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .timer-progress-bar {
+        height: 5px;
+    }
+}
+
+/* Time Mode Result Modal Styles */
+#timeModeResultModal .modal-content {
+    background: var(--container-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+#timeModeResultModal .modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+#timeModeResultModal .modal-title {
+    color: var(--text-color);
+}
+
+#timeModeResultModal .result-icon {
+    margin-bottom: 1.5rem;
+}
+
+#timeModeResultModal .score-display {
+    background: linear-gradient(135deg, #1a1d29 0%, #2d1b3d 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+}
+
+#timeModeResultModal .score-display .stat-number {
+    font-size: 3rem;
+    color: var(--button-bg);
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#timeModeResultModal .score-display .stat-label {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+
+@media (max-width: 576px) {
+    .time-mode-ui .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .time-mode-ui .stat-label {
+        font-size: 0.8rem;
+    }
+}
+
+/* Time Mode Guess Container Styles */
+.time-mode-guess-container {
+    max-height: 150px; /* Height for two guesses plus a bit extra */
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 1rem;
+    scrollbar-width: thin;
+}
+
+/* Custom scrollbar for webkit browsers */
+.time-mode-guess-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.time-mode-guess-container::-webkit-scrollbar-track {
+    background: var(--guess-bg);
+    border-radius: 10px;
+}
+
+.time-mode-guess-container::-webkit-scrollbar-thumb {
+    background: var(--button-bg);
+    border-radius: 10px;
+}
+
+.time-mode-guess-container::-webkit-scrollbar-thumb:hover {
+    background: var(--button-hover);
+}
+
+/* Integrated Time Mode Elements */
+.time-mode-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.timer-score-header {
+    background: var(--container-bg);
+    padding: 0.75rem 1.5rem;
+    gap: 25rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* Smaller circular timer for header */
+.circular-timer-small {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Compact score display */
+.score-display-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--guess-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1.25rem;
+    min-width: 90px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.score-display-compact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.score-display-compact .stat-number {
+    font-size: 2rem;
+}
+
+.score-display-compact .stat-label {
+    font-size: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .timer-score-header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .circular-timer-small {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .score-display-compact {
+        padding: 0.5rem 1rem;
+        min-width: 60px;
+    }
+    
+    .score-display-compact .stat-number {
+        font-size: 1.5rem;
+    }
+}
+

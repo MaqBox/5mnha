@@ -1,0 +1,63 @@
+<div class="header mb-4">
+    <div class="d-flex justify-content-between align-items-center w-100">
+        <button id="back-to-categories" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-right"></i> العودة للفئات
+        </button>
+        <h1 class="display-4 mb-0 text-theme mx-auto">خمنها</h1>
+        <button id="help-button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+            <i class="bi bi-question-circle"></i>
+        </button>
+    </div>
+    
+    <!-- Time Mode Elements - Centered under title -->
+    <div class="time-mode-elements d-none" id="time-mode-elements">
+        <div class="timer-score-header d-flex">
+            <!-- Timer Element -->
+            <div class="circular-timer-small me-5">  <!-- Changed from me-3 to me-5 for more gap -->
+                <div class="timer-circle">
+                    <svg class="timer-svg" viewBox="0 0 100 100">
+                        <circle class="timer-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="timer-progress" id="timer-progress-circle" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="timer-content">
+                        <div class="timer-icon">⏱️</div>
+                        <div class="stat-number" id="time-remaining">1:00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Score Element -->
+            <div class="score-display-compact ms-5">  <!-- Changed from ms-3 to ms-5 for more gap -->
+                <div class="stat-number" id="time-mode-score">0</div>
+                <div class="stat-label">النقاط</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-image mb-4">
+    <!-- Add loading attribute -->
+    <img id="product-image" src="" alt="Product image" 
+         class="img-fluid rounded shadow" 
+         loading="lazy">
+</div>
+<h2 id="product-name" class="h3 mb-3 text-theme"></h2>
+<p class="instructions text-muted mb-4">خمن سعر المنتج (بالريال السعودي)</p>
+<div class="guess-container mb-4">
+    <!-- Guesses will be inserted here -->
+</div>
+<div class="input-container mb-4">
+    <div class="input-group">
+        <button id="submit-guess" class="btn btn-primary btn-lg">
+            <i class="bi bi-check-lg"></i> ارسل
+        </button>
+        <input type="number" id="guess-input" class="form-control form-control-lg" 
+               placeholder="ادخل السعر بالريال السعودي..." 
+               min="0" 
+               step="1">
+    </div>
+</div>
+<div class="result mb-3 text-theme"></div>
+<div class="attempts text-muted">
+    محاولات: <span id="current-attempt" class="fw-bold">0</span>/<span id="max-attempts" class="fw-bold">6</span>
+</div>

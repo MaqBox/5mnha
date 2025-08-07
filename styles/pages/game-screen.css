@@ -61,3 +61,55 @@
     display: flex;
     align-items: center;
 }
+.game-choice-btn {
+    min-width: 120px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.game-choice-btn:hover {
+    transform: scale(1.05);
+}
+
+.game-choice-btn:active {
+    transform: scale(0.95);
+}
+
+#higher-lower-screen .product-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#higher-lower-screen .price-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.question-section h4 {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Result feedback styles */
+.result-feedback {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.result-feedback.correct {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.result-feedback.incorrect {
+    background-color: var(--danger-color);
+    color: white;
+}

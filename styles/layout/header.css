@@ -1,13 +1,23 @@
 .header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    text-align: center;
 }
 
 .header .d-flex {
     position: relative;
     width: 100%;
+    background: transparent;
+}
+
+.header h1.display-4 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
 }
 
 .dark-mode-toggle {

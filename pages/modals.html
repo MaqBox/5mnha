@@ -1,0 +1,344 @@
+<!-- Instructions Modal -->
+<div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="instructionsModalLabel">
+                    <i class="bi bi-info-circle me-2"></i>
+                    كيفية اللعب
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="instructions-content">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="instruction-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <span class="instruction-number">1</span>
+                                    <div class="instruction-content">
+                                        <h6 class="instruction-title">اختر الفئة</h6>
+                                        <p class="instruction-text">اختر فئة المنتجات التي تريد اللعب بها</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="instruction-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <span class="instruction-number">2</span>
+                                    <div class="instruction-content">
+                                        <h6 class="instruction-title">انظر إلى المنتج</h6>
+                                        <p class="instruction-text">تأمل صورة المنتج واقرأ اسمه بعناية</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="instruction-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <span class="instruction-number">3</span>
+                                    <div class="instruction-content">
+                                        <h6 class="instruction-title">خمن السعر</h6>
+                                        <p class="instruction-text">ادخل تخمينك لسعر المنتج بالريال السعودي</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="instruction-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <span class="instruction-number">4</span>
+                                    <div class="instruction-content">
+                                        <h6 class="instruction-title">تابع التلميحات</h6>
+                                        <p class="instruction-text">استخدم الأسهم لمعرفة إذا كان السعر أعلى أم أقل</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="instruction-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <span class="instruction-number">5</span>
+                                    <div class="instruction-content">
+                                        <h6 class="instruction-title">اربح في 6 محاولات</h6>
+                                        <p class="instruction-text">لديك 6 محاولات للوصول للسعر الصحيح</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="tips-section">
+                        <h6 class="tips-title mb-3">
+                            <i class="bi bi-lightbulb me-2"></i>
+                            نصائح مفيدة
+                        </h6>
+                        
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="tip-item mb-2">
+                                    <i class="bi bi-arrow-up text-danger me-2"></i>
+                                    <span>السهم الأحمر يعني السعر أعلى</span>
+                                </div>
+                                
+                                <div class="tip-item mb-2">
+                                    <i class="bi bi-arrow-down text-success me-2"></i>
+                                    <span>السهم الأخضر يعني السعر أقل</span>
+                                </div>
+                                
+                                <div class="tip-item mb-2">
+                                    <i class="bi bi-check-circle text-primary me-2"></i>
+                                    <span>الدائرة الزرقاء تعني السعر صحيح</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="tip-item mb-2">
+                                    <i class="bi bi-calculator me-2"></i>
+                                    <span>فكر في أسعار المنتجات المشابهة</span>
+                                </div>
+                                
+                                <div class="tip-item">
+                                    <i class="bi bi-coin text-warning me-2"></i>
+                                    <span>قواعد التقريب: ١٦.٥ = ١٧ (للأعلى) | ١٦.٤ = ١٦ (للأسفل)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">فهمت!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- History Modal -->
+<div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="historyModalLabel">تاريخ الألعاب</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="history-list" class="list-group">
+                    <!-- History items will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modal-image" src="" alt="Product image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Game End Modal -->
+<div class="modal fade" id="gameEndModal" tabindex="-1" aria-labelledby="gameEndModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="gameEndModalLabel">انتهت اللعبة</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center" id="gameEndModalBody">
+        <!-- Result message and correct price will be inserted here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="gameEndTryAgain">حاول مرة أخرى</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Comparison Result Modal -->
+<div class="modal fade" id="comparisonResultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="comparisonResultTitle">نتيجة المقارنة</h5>
+            </div>
+            <div class="modal-body text-center">
+                <div id="comparisonResultContent">
+                    <div class="result-icon mb-3">
+                        <i id="comparisonResultIcon" class="display-1"></i>
+                    </div>
+                    <p id="comparisonResultMessage" class="fs-5 mb-3"></p>
+                    <div class="price-reveal">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="price-card">
+                                    <img id="resultImage1" src="" alt="" class="img-fluid mb-2" style="max-height: 80px;" />
+                                    <h6 id="resultName1"></h6>
+                                    <span class="badge bg-primary fs-6" id="resultPrice1"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="price-card">
+                                    <img id="resultImage2" src="" alt="" class="img-fluid mb-2" style="max-height: 80px;" />
+                                    <h6 id="resultName2"></h6>
+                                    <span class="badge bg-primary fs-6" id="resultPrice2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Final Score Modal -->
+<div class="modal fade" id="finalScoreModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">النتيجة النهائية</h5>
+            </div>
+            <div class="modal-body text-center">
+                <div class="final-score-content">
+                    <div class="score-display mb-4">
+                        <div class="display-3 text-primary" id="finalScoreDisplay">0/10</div>
+                        <p class="fs-5" id="finalScoreMessage">أحسنت!</p>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <div class="stat-number text-success" id="correctAnswers">0</div>
+                                    <div class="stat-label">إجابات صحيحة</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <div class="stat-number text-danger" id="wrongAnswers">0</div>
+                                    <div class="stat-label">إجابات خاطئة</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <div class="stat-number text-primary" id="accuracyPercentage">0%</div>
+                                    <div class="stat-label">نسبة الدقة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" id="playAgainBtn">العب مرة أخرى</button>
+                <button type="button" class="btn btn-outline-secondary" id="backToModesFromFinal">العودة للأنماط</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Time Mode Result Modal -->
+<div class="modal fade" id="timeModeResultModal" tabindex="-1" aria-labelledby="timeModeResultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="timeModeResultModalLabel">انتهى الوقت!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="result-icon">
+                    <i class="bi bi-stopwatch" style="font-size: 4rem; color: var(--button-bg);"></i>
+                </div>
+                <h3 class="mb-3">نتيجتك النهائية</h3>
+                <div class="score-display">
+                    <div class="stat-number" id="time-mode-final-score">0</div>
+                    <div class="stat-label">منتج صحيح</div>
+                </div>
+                <div class="mt-4">
+                    <button type="button" class="btn btn-primary me-2" onclick="initTimedGame()" data-bs-dismiss="modal">
+                        العب مرة أخرى
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="showModeSelection()" data-bs-dismiss="modal">
+                        العودة للأنماط
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add these modals after the existing modals -->
+
+<!-- Higher-Lower Result Modal -->
+<div class="modal fade" id="higherLowerResultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">نتيجة التخمين</h5>
+            </div>
+            <div class="modal-body text-center">
+                <div class="result-icon mb-3">
+                    <i id="higherLowerResultIcon" class="display-1"></i>
+                </div>
+                <p id="higherLowerResultMessage" class="fs-5 mb-3"></p>
+                <div id="higherLowerResultDetails" class="text-center">
+                    <!-- Result details will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Higher-Lower Final Score Modal -->
+<div class="modal fade" id="higherLowerFinalScoreModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">النتيجة النهائية - أعلى أم أقل</h5>
+            </div>
+            <div class="modal-body text-center">
+                <div class="final-score-content">
+                    <div class="score-display mb-4">
+                        <div class="display-3 text-primary" id="higherLowerFinalScoreDisplay">0/10</div>
+                        <p class="fs-5" id="higherLowerFinalScoreMessage">أحسنت!</p>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <div class="stat-number text-success" id="higherLowerCorrectAnswers">0</div>
+                                    <div class="stat-label">إجابات صحيحة</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <div class="stat-number text-danger" id="higherLowerWrongAnswers">0</div>
+                                    <div class="stat-label">إجابات خاطئة</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <div class="stat-number text-primary" id="higherLowerAccuracyPercentage">0%</div>
+                                    <div class="stat-label">نسبة الدقة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" onclick="initHigherLowerGame()" data-bs-dismiss="modal">العب مرة أخرى</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="showModeSelection()" data-bs-dismiss="modal">العودة للأنماط</button>
+            </div>
+        </div>
+    </div>
+</div>
