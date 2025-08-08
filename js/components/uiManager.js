@@ -109,9 +109,16 @@ export function showGameScreen() {
     
     // Show/hide time mode elements
     const timeModeElements = document.getElementById('time-mode-elements');
+    const attemptsCounter = document.getElementById('attempts-counter');
+    
     if (timeModeElements) {
         if (isTimeModeActive()) {
             timeModeElements.classList.remove('d-none');
+            
+            // Hide attempts counter in time mode
+            if (attemptsCounter) {
+                attemptsCounter.style.display = 'none';
+            }
             
             // Add this code to apply the CSS class to the guess container
             const guessContainerElement = document.querySelector('.guess-container');
@@ -120,6 +127,11 @@ export function showGameScreen() {
             }
         } else {
             timeModeElements.classList.add('d-none');
+            
+            // Show attempts counter in regular mode
+            if (attemptsCounter) {
+                attemptsCounter.style.display = 'block';
+            }
             
             // Remove the CSS class when not in time mode
             const guessContainerElement = document.querySelector('.guess-container');
@@ -182,20 +194,22 @@ export function renderGuesses(guesses) {
             guessContainer.appendChild(guessElement);
         });
         
-        // Update the attempts counter in the UI with null checks
-        const currentAttemptElement = document.getElementById('current-attempt');
-        const maxAttemptsElement = document.getElementById('max-attempts');
-        
-        if (currentAttemptElement) {
-            currentAttemptElement.textContent = toArabicNumerals(getAttempts());
-        } else {
-            console.warn('current-attempt element not found');
-        }
-        
-        if (maxAttemptsElement) {
-            maxAttemptsElement.textContent = toArabicNumerals(getMaxAttempts());
-        } else {
-            console.warn('max-attempts element not found');
+        // Only update attempts counter if NOT in time mode
+        if (!isTimeModeActive()) {
+            const currentAttemptElement = document.getElementById('current-attempt');
+            const maxAttemptsElement = document.getElementById('max-attempts');
+            
+            if (currentAttemptElement) {
+                currentAttemptElement.textContent = toArabicNumerals(getAttempts());
+            } else {
+                console.warn('current-attempt element not found');
+            }
+            
+            if (maxAttemptsElement) {
+                maxAttemptsElement.textContent = toArabicNumerals(getMaxAttempts());
+            } else {
+                console.warn('max-attempts element not found');
+            }
         }
 
         if (isTimeModeActive() && guesses.length > 2) {
@@ -271,19 +285,13 @@ export function clearGameUI() {
             resultDiv.className = 'result';
         }
         
-        const currentAttemptElement = document.getElementById('current-attempt');
-        if (currentAttemptElement) {
-            currentAttemptElement.textContent = '0';
-        } else {
-            console.warn('current-attempt element not found in clearGameUI');
-        }
-        
-        if (!guessInput) {
-            console.error('Error: guessInput element not found in clearGameUI');
-            // Try to get the element directly as a fallback
-            const input = document.getElementById('guess-input');
-            if (input) {
-                guessInput = input;
+        // Only reset attempts counter if NOT in time mode
+        if (!isTimeModeActive()) {
+            const currentAttemptElement = document.getElementById('current-attempt');
+            if (currentAttemptElement) {
+                currentAttemptElement.textContent = '0';
+            } else {
+                console.warn('current-attempt element not found in clearGameUI');
             }
         }
         

@@ -9,6 +9,7 @@ import {
     addRecentProduct,
     resetRecentProducts
 } from './gameState.js';
+import { isTimeModeActive } from './modes/timeMode.js';
 
 export function checkGuess(guess) {
     const attempts = incrementAttempts();
@@ -23,7 +24,8 @@ export function checkGuess(guess) {
             message: `<i class="bi bi-check-circle-fill"></i>`,
             color: 'bg-primary bg-opacity-25'
         };
-    } else if (attempts >= maxAttempts) {
+    } else if (!isTimeModeActive() && attempts >= maxAttempts) {
+        // Only limit attempts in regular mode, not in time mode
         return { 
             correct: false, 
             message: `<i class="bi bi-x-circle-fill"></i>`,
