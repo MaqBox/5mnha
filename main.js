@@ -47,7 +47,7 @@ import {
     submitButton,
     backToCategoriesBtn,
     initializeUIElements  // Add this import
-} from './js/components/uiManager.js';
+} from './js/components/uimanager.js';
 import { setupInputValidation, validateGuess } from './js/components/inputHandler.js';
 import {
     initHigherLowerMode,
@@ -286,6 +286,26 @@ function setupHigherLowerMode() {
         backToModesBtn.addEventListener('click', () => {
             selectedMode = null;
             showModeSelection();
+        });
+    }
+     const higherLowerImage1 = document.getElementById('higher-lower-image-1');
+    const higherLowerImage2 = document.getElementById('higher-lower-image-2');
+    
+    if (higherLowerImage1) {
+        higherLowerImage1.addEventListener('click', function() {
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = this.src;
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+        });
+    }
+    
+    if (higherLowerImage2) {
+        higherLowerImage2.addEventListener('click', function() {
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = this.src;
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
         });
     }
 }
