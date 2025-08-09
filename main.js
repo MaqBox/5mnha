@@ -47,7 +47,7 @@ import {
     submitButton,
     backToCategoriesBtn,
     initializeUIElements  // Add this import
-} from './js/components/uimanager.js';
+} from './js/components/uiManager.js';
 import { setupInputValidation, validateGuess } from './js/components/inputHandler.js';
 import {
     initHigherLowerMode,
