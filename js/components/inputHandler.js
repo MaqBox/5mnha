@@ -1,5 +1,5 @@
 // Input validation and event handling
-import { guessInput } from './uiManager.js';
+import { guessInput } from './uimanager.js';
 
 export function setupInputValidation() {
     // Check if guessInput exists before adding event listeners
