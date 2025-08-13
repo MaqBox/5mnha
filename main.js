@@ -56,7 +56,8 @@ import {
     getHigherLowerScore,
     getHigherLowerRound,
     getMaxRounds as getHigherLowerMaxRounds,
-    generateNextMysteryProduct
+    generateNextMysteryProduct,
+    generateHigherLowerRound
 } from './js/game/modes/higherLowerMode.js';
 
 // Game mode state
@@ -98,8 +99,7 @@ function setupEventListeners() {
     setupHigherLowerMode();
 }
 
-// Setup mode selection event listeners
-// Setup mode selection event listeners
+
 function setupModeSelection() {
     const modeBoxes = document.querySelectorAll('.mode-box');
     const backToModesBtn = document.getElementById('back-to-modes');
@@ -131,7 +131,6 @@ function setupModeSelection() {
             } else if (mode === 'higher-lower') {
                 console.log('Starting higher-lower mode...');
                 setSelectedCategory(null);
-                setFilteredProducts(getProducts());
                 initHigherLowerGame();
             }
         });
@@ -146,14 +145,42 @@ function setupModeSelection() {
 }
 
 // Add new function for Higher-Lower game initialization
-function initHigherLowerGame() {
+async function initHigherLowerGame() {
     try {
-        initHigherLowerMode();
+        // Ensure products are loaded first
+        await loadProducts();
+        const products = getProducts();
+        
+        // Validate minimum product requirements
+        if (products.length < 2) {
+            throw new Error(`Higher-lower mode requires at least 2 products. Currently have: ${products.length}`);
+        }
+        
+        console.log(`Loading ${products.length} products for higher-lower mode`);
+        
+        // Set filtered products and verify they're set correctly
+        setFilteredProducts(products);
+        
+        // Double-check that filtered products are actually set
+        const verifyProducts = getFilteredProducts();
+        if (!verifyProducts || verifyProducts.length < 2) {
+            throw new Error(`Failed to set filtered products. Expected: ${products.length}, Got: ${verifyProducts ? verifyProducts.length : 0}`);
+        }
+        
+        console.log(`Verified ${verifyProducts.length} filtered products available`);
+        
+        // Show the screen first
         showHigherLowerScreen();
-        renderHigherLowerRound();
+        
+        console.log(`Higher-lower mode initialized successfully with ${verifyProducts.length} products`);
     } catch (error) {
         console.error('Error initializing higher-lower mode:', error);
         showError('Error initializing higher-lower mode: ' + error.message);
+        
+        // Fallback to mode selection if initialization fails
+        setTimeout(() => {
+            showModeSelection();
+        }, 3000);
     }
 }
 function hideAllScreens() {
@@ -173,22 +200,45 @@ function hideAllScreens() {
 function showHigherLowerScreen() {
     hideAllScreens();
     
-    // Show the higher-lower screen container
     const higherLowerScreen = document.getElementById('higher-lower-screen');
     if (higherLowerScreen) {
         higherLowerScreen.style.display = 'block';
         higherLowerScreen.classList.remove('d-none');
     }
     
-    // Load the content and setup the mode
-    renderHigherLowerRound();
+    // Initialize the mode and render - do this together to avoid race conditions
+    try {
+        initHigherLowerMode();
+        renderHigherLowerRound();
+    } catch (error) {
+        console.error('Error initializing higher-lower screen:', error);
+        showError('Error: ' + error.message);
+    }
 }
 
 // Add function to render higher-lower round
 function renderHigherLowerRound() {
-    const roundData = getCurrentRound();
+    // Ensure the round is generated before rendering
+    let roundData = getCurrentRound();
+    
+    // If products aren't set, generate the round first
+    if (!roundData.currentProduct || !roundData.nextProduct) {
+        try {
+            roundData = generateHigherLowerRound();
+        } catch (error) {
+            console.error('Error generating higher-lower round:', error);
+            showError('Error: ' + error.message);
+            return;
+        }
+    }
 
-    console.log('Round data:', roundData);
+    console.log('Rendering round data:', roundData);
+    
+    // Add null checks before accessing properties
+    if (!roundData.currentProduct || !roundData.nextProduct) {
+        console.error('Products not properly initialized');
+        return;
+    }
     
     // Get UI elements - fix the element IDs to match the HTML
     const product1Name = document.getElementById('higher-lower-name-1');
@@ -201,7 +251,7 @@ function renderHigherLowerRound() {
     const maxRoundsCounter = document.getElementById('higher-lower-max-rounds');
     const scoreDisplay = document.getElementById('higher-lower-score');
     
-    // Product 1 (left side - visible price)
+    // Update product 1 (visible price)
     if (product1Name) product1Name.textContent = roundData.currentProduct.name;
     if (product1Image) {
         product1Image.src = roundData.currentProduct.imageUrl || '';
@@ -209,31 +259,22 @@ function renderHigherLowerRound() {
     }
     if (product1Price) product1Price.textContent = `ريال ${roundData.currentProduct.price}`;
     
-    // Product 2 (right side - mystery product)
+    // Update product 2 (mystery - name only, price hidden)
     if (product2Name) product2Name.textContent = roundData.nextProduct.name;
     if (product2Image) {
         product2Image.src = roundData.nextProduct.imageUrl || '';
         product2Image.alt = roundData.nextProduct.name;
     }
     
-    // Fix the round display - update only the round number, not the entire format
-    // Fix the round display - show the round we're currently playing
-if (roundCounter) {
-    // Show the round we're about to play, not the incremented round
-    const currentRoundToShow = roundData.gameComplete ? roundData.maxRounds : roundData.round;
-    roundCounter.textContent = currentRoundToShow;
-    console.log('Set round counter to:', currentRoundToShow);
-} else {
-    console.error('Round counter element not found!');
-}
-
-    if (maxRoundsCounter) {
-        maxRoundsCounter.textContent = 10;
-          console.log('Set max rounds counter to:', 10);
-    } else {
-        console.error('Max rounds counter element not found!');
+    // Update game status
+    if (roundCounter) {
+        roundCounter.textContent = roundData.round;
     }
-
+    
+    if (maxRoundsCounter) {
+        maxRoundsCounter.textContent = roundData.maxRounds;
+    }
+    
     if (scoreDisplay) scoreDisplay.textContent = getHigherLowerScore();
 }
 
@@ -768,49 +809,66 @@ function updateHigherLowerDisplay() {
 }
 
 function showHigherLowerResult(result) {
-    const modal = new bootstrap.Modal(document.getElementById('higherLowerResultModal'));
-    const modalElement = document.getElementById('higherLowerResultModal');
-    
-    const resultIcon = document.getElementById('higherLowerResultIcon');
-    const resultMessage = document.getElementById('higherLowerResultMessage');
-    const resultDetails = document.getElementById('higherLowerResultDetails');
-    
-    if (result.correct) {
-        resultIcon.className = 'bi bi-check-circle-fill text-success display-1';
-        resultMessage.textContent = 'إجابة صحيحة! أحسنت';
-    } else {
-        resultIcon.className = 'bi bi-x-circle-fill text-danger display-1';
-        resultMessage.textContent = 'إجابة خاطئة، حاول مرة أخرى';
+    // First, reveal the actual price on the UI
+    const product2Price = document.querySelector('#higher-lower-product-2 .price-value');
+    if (product2Price && result.nextProduct) {
+        product2Price.textContent = `ريال ${result.nextProduct.price}`;
+        product2Price.classList.remove('text-muted');
+        product2Price.classList.add(result.correct ? 'text-success' : 'text-danger');
     }
     
-    if (resultDetails && result.nextProduct) {
-        resultDetails.innerHTML = `
-            <div class="text-center">
-                <p class="mb-3">لقد خمنت أن سعر <strong>${result.nextProduct.name}</strong> سيكون <strong>${result.actualResult === 'higher' ? 'أعلى' : 'أقل'}</strong> من ريال ${result.currentProduct?.price || 0}</p>
-                <p class="mb-2">السعر الفعلي: <strong>ريال ${result.nextProduct.price || 0}</strong></p>
-                <p class="mb-0">الإجابة الصحيحة: <strong>${result.actualResult === 'higher' ? 'أعلى' : 'أقل'}</strong></p>
-            </div>
-        `;
-    }
-    
-    modal.show();
-       
-    const handleModalClose = function() {
-        modal.hide();
-    };
-    
-    const handleModalHidden = function() {
-        if (modalElement) {
-            modalElement.setAttribute('aria-hidden', 'true');
+    // Small delay before showing modal to let users see the price
+    setTimeout(() => {
+        const modal = new bootstrap.Modal(document.getElementById('higherLowerResultModal'));
+        const modalElement = document.getElementById('higherLowerResultModal');
+        
+        const resultIcon = document.getElementById('higherLowerResultIcon');
+        const resultMessage = document.getElementById('higherLowerResultMessage');
+        const resultDetails = document.getElementById('higherLowerResultDetails');
+        
+        if (result.correct) {
+            resultIcon.className = 'bi bi-check-circle-fill text-success display-1';
+            resultMessage.textContent = 'إجابة صحيحة! أحسنت';
+        } else {
+            resultIcon.className = 'bi bi-x-circle-fill text-danger display-1';
+            resultMessage.textContent = 'إجابة خاطئة، حاول مرة أخرى';
         }
-        modalElement.removeEventListener('click', handleModalClose);
-        modalElement.removeEventListener('hidden.bs.modal', handleModalHidden);
-    };
-    
-    if (modalElement) {
-        modalElement.addEventListener('click', handleModalClose);
-        modalElement.addEventListener('hidden.bs.modal', handleModalHidden, { once: true });
-    }
+        
+        if (resultDetails && result.nextProduct) {
+            resultDetails.innerHTML = `
+                <div class="text-center">
+                    <p class="mb-3">لقد خمنت أن سعر <strong>${result.nextProduct.name}</strong> سيكون <strong>${result.actualResult === 'higher' ? 'أعلى' : 'أقل'}</strong> من ريال ${result.currentProduct?.price || 0}</p>
+                    <p class="mb-2">السعر الفعلي: <strong>ريال ${result.nextProduct.price || 0}</strong></p>
+                    <p class="mb-0">الإجابة الصحيحة: <strong>${result.actualResult === 'higher' ? 'أعلى' : 'أقل'}</strong></p>
+                </div>
+            `;
+        }
+        
+        modal.show();
+           
+        const handleModalClose = function() {
+            modal.hide();
+        };
+        
+        const handleModalHidden = function() {
+            // Reset the price display for next round
+            if (product2Price) {
+                product2Price.textContent = '؟؟؟';
+                product2Price.className = 'price-value text-muted';
+            }
+            
+            if (modalElement) {
+                modalElement.setAttribute('aria-hidden', 'true');
+            }
+            modalElement.removeEventListener('click', handleModalClose);
+            modalElement.removeEventListener('hidden.bs.modal', handleModalHidden);
+        };
+        
+        if (modalElement) {
+            modalElement.addEventListener('click', handleModalClose);
+            modalElement.addEventListener('hidden.bs.modal', handleModalHidden, { once: true });
+        }
+    }, 800); // 800ms delay to show the price revelation
 }
 
 function showHigherLowerFinalScore() {
@@ -820,28 +878,20 @@ function showHigherLowerFinalScore() {
     const wrongAnswers = maxRounds - score;
     const accuracy = Math.round((score / maxRounds) * 100);
     
-    const finalScoreDisplay = document.getElementById('higherLowerFinalScoreDisplay');
-    const correctAnswers = document.getElementById('higherLowerCorrectAnswers');
-    const wrongAnswersEl = document.getElementById('higherLowerWrongAnswers');
-    const accuracyPercentage = document.getElementById('higherLowerAccuracyPercentage');
-    const finalScoreMessage = document.getElementById('higherLowerFinalScoreMessage');
+    document.getElementById('higherLowerFinalScoreDisplay').textContent = `${score}/${maxRounds}`;
+    document.getElementById('higherLowerCorrectAnswers').textContent = score;
+    document.getElementById('higherLowerWrongAnswers').textContent = wrongAnswers;
     
-    if (finalScoreDisplay) finalScoreDisplay.textContent = `${score}/${maxRounds}`;
-    if (correctAnswers) correctAnswers.textContent = score;
-    if (wrongAnswersEl) wrongAnswersEl.textContent = wrongAnswers;
-    if (accuracyPercentage) accuracyPercentage.textContent = `${accuracy}%`;
-    
-    if (finalScoreMessage) {
-        if (accuracy >= 80) {
-            finalScoreMessage.textContent = 'ممتاز! أداء رائع';
-            finalScoreMessage.className = 'fs-5 text-success';
-        } else if (accuracy >= 60) {
-            finalScoreMessage.textContent = 'جيد! يمكنك التحسن';
-            finalScoreMessage.className = 'fs-5 text-primary';
-        } else {
-            finalScoreMessage.textContent = 'حاول مرة أخرى';
-            finalScoreMessage.className = 'fs-5 text-warning';
-        }
+    const messageEl = document.getElementById('higherLowerFinalScoreMessage');
+    if (accuracy >= 80) {
+        messageEl.textContent = 'ممتاز! أداء رائع';
+        messageEl.className = 'fs-5 text-success';
+    } else if (accuracy >= 60) {
+        messageEl.textContent = 'جيد! يمكنك التحسن';
+        messageEl.className = 'fs-5 text-primary';
+    } else {
+        messageEl.textContent = 'حاول مرة أخرى';
+        messageEl.className = 'fs-5 text-warning';
     }
     
     modal.show();
