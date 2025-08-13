@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             PageLoader.loadPage('game-screen', 'game-screen'),
             PageLoader.loadPage('comparison-screen', 'comparison-screen'),
             PageLoader.loadPage('higher-lower-screen', 'higher-lower-screen'),
+            PageLoader.loadPage('memory-match-screen', 'memory-match-screen'), // Add this line
             PageLoader.loadModals()
         ]);
         

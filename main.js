@@ -60,6 +60,11 @@ import {
     generateHigherLowerRound
 } from './js/game/modes/higherLowerMode.js';
 
+import {
+    initMemoryMatch,
+    getMemoryMatchGame
+} from './js/game/modes/memoryMatchMode.js';
+
 // Game mode state
 let selectedMode = null;
 
@@ -132,6 +137,11 @@ function setupModeSelection() {
                 console.log('Starting higher-lower mode...');
                 setSelectedCategory(null);
                 initHigherLowerGame();
+            } else if (mode === 'memory-match') {
+                console.log('Starting memory match mode...');
+                setSelectedCategory(null);
+                setFilteredProducts(getProducts());
+                initMemoryMatchGame();
             }
         });
     });
@@ -183,18 +193,64 @@ async function initHigherLowerGame() {
         }, 3000);
     }
 }
+
+async function initMemoryMatchGame() {
+    try {
+        // Ensure products are loaded first
+        await loadProducts();
+        const products = getProducts();
+        
+        // Validate minimum product requirements
+        if (products.length < 6) {
+            throw new Error(`Memory match mode requires at least 6 products. Currently have: ${products.length}`);
+        }
+        
+        console.log(`Loading ${products.length} products for memory match mode`);
+        
+        // Set filtered products
+        setFilteredProducts(products);
+        
+        // Show the screen first
+        showMemoryMatchScreen();
+        
+        // Initialize the memory match game
+        initMemoryMatch();
+        
+        console.log(`Memory match mode initialized successfully with ${products.length} products`);
+    } catch (error) {
+        console.error('Error initializing memory match mode:', error);
+        showError('Error initializing memory match mode: ' + error.message);
+        
+        // Fallback to mode selection if initialization fails
+        setTimeout(() => {
+            showModeSelection();
+        }, 3000);
+    }
+}
+
+// Add function to show memory match screen
+function showMemoryMatchScreen() {
+    hideAllScreens();
+    const memoryMatchScreen = document.getElementById('memory-match-screen');
+    if (memoryMatchScreen) {
+        memoryMatchScreen.style.display = 'block';
+        memoryMatchScreen.classList.remove('d-none');
+    }
+}
 function hideAllScreens() {
     const modeSelection = document.getElementById('mode-selection');
     const categorySelection = document.getElementById('category-selection');
     const gameScreen = document.getElementById('game-screen');
     const comparisonScreen = document.getElementById('comparison-screen');
     const higherLowerScreen = document.getElementById('higher-lower-screen');
+    const memoryMatchScreen = document.getElementById('memory-match-screen');
     
     if (modeSelection) modeSelection.style.display = 'none';
     if (categorySelection) categorySelection.style.display = 'none';
     if (gameScreen) gameScreen.style.display = 'none';
     if (comparisonScreen) comparisonScreen.style.display = 'none';
     if (higherLowerScreen) higherLowerScreen.style.display = 'none';
+    if (memoryMatchScreen) memoryMatchScreen.style.display = 'none';
 }
 // Add function to show higher-lower screen
 function showHigherLowerScreen() {
@@ -909,3 +965,5 @@ window.showModeSelection = showModeSelection;
 window.initTimedGame = initTimedGame;
 window.initHigherLowerGame = initHigherLowerGame;
 window.hideAllScreens = hideAllScreens;
+window.initMemoryMatchGame = initMemoryMatchGame;
+window.showMemoryMatchScreen = showMemoryMatchScreen;

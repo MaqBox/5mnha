@@ -1,0 +1,111 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <!-- Header -->
+        <div class="col-12">
+            <div class="game-header d-flex justify-content-between align-items-center mb-4">
+                <button id="back-to-modes-memory" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-right-circle ms-2"></i>
+                    العودة للأنماط
+                </button>
+                <div class="game-info text-center">
+                    <h2 class="mb-1">مطابقة الذاكرة</h2>
+                    <div class="score-info">
+                        <span class="badge bg-primary fs-6">
+                            النقاط: <span id="memory-score">0</span>
+                        </span>
+                        <span class="badge bg-success fs-6 ms-2">
+                            الأزواج: <span id="memory-pairs">0</span> / <span id="memory-max-pairs">8</span>
+                        </span>
+                        <span class="badge bg-warning fs-6 ms-2">
+                            الحركات: <span id="memory-moves">0</span>
+                        </span>
+                        <span class="badge bg-info fs-6 ms-2">
+                            الوقت: <span id="memory-time">00:00</span>
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 120px;"></div>
+            </div>
+        </div>
+
+        <!-- Game Content -->
+        <div class="col-12">
+            <div class="memory-game-container">
+                <div class="memory-grid" id="memory-grid">
+                    <!-- Cards will be dynamically generated here -->
+                </div>
+                
+                <!-- Game Instructions -->
+                <div class="memory-instructions text-center mt-4">
+                    <p class="instruction-text">
+                        <i class="bi bi-lightbulb me-2"></i>
+                        اقلب البطاقات للعثور على الأزواج المتطابقة!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Memory Match Result Modal -->
+<div class="modal fade" id="memoryResultModal" tabindex="-1" aria-labelledby="memoryResultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="memoryResultModalLabel">
+                    <i class="bi bi-trophy me-2"></i>
+                    نتيجة المطابقة
+                </h5>
+            </div>
+            <div class="modal-body text-center">
+                <div class="result-content">
+                    <div class="result-icon mb-3">
+                        <i id="memory-result-icon" class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                    </div>
+                    
+                    <h4 id="memory-result-title" class="mb-3">مبروك!</h4>
+                    <p id="memory-result-message" class="mb-4">لقد أكملت اللعبة بنجاح!</p>
+                    
+                    <div class="stats-grid">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="final-memory-score">0</div>
+                                    <div class="stat-label">النقاط النهائية</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="final-memory-moves">0</div>
+                                    <div class="stat-label">إجمالي الحركات</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="final-memory-time">00:00</div>
+                                    <div class="stat-label">الوقت المستغرق</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="final-memory-accuracy">0%</div>
+                                    <div class="stat-label">دقة المطابقة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" id="memory-play-again">
+                    <i class="bi bi-arrow-clockwise me-2"></i>
+                    العب مرة أخرى
+                </button>
+                <button type="button" class="btn btn-outline-secondary" id="memory-back-to-modes">
+                    <i class="bi bi-house me-2"></i>
+                    العودة للأنماط
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

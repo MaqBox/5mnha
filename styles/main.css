@@ -22,6 +22,7 @@
 @import 'pages/game-screen.css';
 @import 'pages/comparison-mode.css';
 @import 'pages/time-mode.css';
+@import 'pages/memory-match.css';
 
 /* 6. Utilities */
 @import 'utilities/animations.css';
