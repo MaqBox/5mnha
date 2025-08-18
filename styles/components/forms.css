@@ -38,3 +38,19 @@
     -moz-appearance: textfield;
     appearance: textfield;
 }
+
+/* Reusable guess input class for consistent styling across modes */
+.guess-input {
+    text-align: center;
+}
+/* Hide number input spinner buttons for all guess inputs */
+.guess-input::-webkit-outer-spin-button,
+.guess-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+.guess-input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}

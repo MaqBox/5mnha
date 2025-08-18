@@ -71,3 +71,36 @@ export function validateGuess(inputValue) {
         value: guess
     };
 }
+export function setupInputValidationFor(element) {
+    if (!element) return;
+
+    // Allow only digits 0-9
+    element.addEventListener('input', (event) => {
+        const value = event.target.value;
+        const cleanValue = value.replace(/[^0-9]/g, '');
+        event.target.value = cleanValue;
+    });
+
+    // Block non-digit keys, decimal point, negatives, etc.
+    element.addEventListener('keydown', (event) => {
+        if ([8, 9, 27, 13, 46].indexOf(event.keyCode) !== -1 ||
+            (event.keyCode === 65 && event.ctrlKey === true) ||
+            (event.keyCode === 67 && event.ctrlKey === true) ||
+            (event.keyCode === 86 && event.ctrlKey === true) ||
+            (event.keyCode === 88 && event.ctrlKey === true) ||
+            (event.keyCode >= 35 && event.keyCode <= 39)) {
+            return;
+        }
+        if ((event.shiftKey || (event.keyCode < 48 || event.keyCode > 57)) && 
+            (event.keyCode < 96 || event.keyCode > 105)) {
+            event.preventDefault();
+        }
+    });
+
+    // Prevent minus sign
+    element.addEventListener('keydown', (event) => {
+        if (event.key === '-' || event.key === 'Subtract') {
+            event.preventDefault();
+        }
+    });
+}

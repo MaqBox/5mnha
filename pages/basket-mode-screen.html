@@ -1,0 +1,98 @@
+<div id="basket-game-container">
+    <div class="header mb-4">
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <button id="back-to-modes-basket" class="btn btn-outline-secondary btn-sm">
+                <i class="bi bi-arrow-right"></i> العودة للأنماط
+            </button>
+            <h1 class="display-4 mb-0 text-theme mx-auto">وضع السلة</h1>
+            <button id="help-button-basket" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                <i class="bi bi-question-circle"></i>
+            </button>
+        </div>
+    </div>
+    <div class="basket-products-container mb-4">
+        <h2 class="h3 mb-3 text-theme text-center">منتجات السلة</h2>
+        <div id="basket-products-grid" class="row g-3">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </div>
+    <p class="instructions text-muted mb-4 text-center">ما هو إجمالي سعر هذه المنتجات؟</p>
+    <div class="guess-container mb-4" id="basket-guess-container">
+        <!-- Guesses will be inserted here -->
+    </div>
+    <div class="input-container mb-4">
+        <div class="input-group">
+            <input type="number" id="guess-input" class="form-control form-control-lg" 
+                   placeholder="ادخل السعر بالريال السعودي..." 
+                   min="0" 
+                   step="1">
+            <button id="basket-submit-guess" class="btn btn-primary btn-lg" type="button">
+                <i class="bi bi-check-lg"></i> ارسل
+            </button>
+        </div>
+    </div>
+    <div class="result mb-3 text-theme"></div>
+    <div class="attempts text-muted text-center" id="basket-attempts-counter">
+        محاولات: <span id="basket-current-attempt" class="fw-bold">0</span>/<span id="basket-max-attempts" class="fw-bold">6</span>
+    </div>
+    <!-- Feedback Section -->
+    <div id="basket-feedback" class="basket-feedback d-none">
+        <div class="feedback-card">
+            <div id="basket-feedback-content"></div>
+            <div class="mt-3">
+                <button id="basket-try-again" class="btn btn-warning me-2">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    حاول مرة أخرى
+                </button>
+                <button id="basket-new-game" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i>
+                    لعبة جديدة
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Game Result Modal -->
+    <div class="modal fade" id="basketResultModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">نتائج وضع السلة</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="result-stats">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <h3 id="final-basket-score" class="text-primary">0</h3>
+                                    <p class="text-muted">النقاط النهائية</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <h3 id="final-basket-accuracy" class="text-success">0%</h3>
+                                    <p class="text-muted">دقة التخمين</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <h3 id="final-basket-attempts" class="text-warning">0</h3>
+                                    <p class="text-muted">إجمالي المحاولات</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="basket-play-again" class="btn btn-primary me-2">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        العب مرة أخرى
+                    </button>
+                    <button id="basket-back-to-modes" class="btn btn-secondary">
+                        <i class="bi bi-house"></i>
+                        العودة للأنماط
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

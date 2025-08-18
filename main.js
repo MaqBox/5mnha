@@ -64,6 +64,10 @@ import {
     initMemoryMatch,
     getMemoryMatchGame
 } from './js/game/modes/memoryMatchMode.js';
+import {
+    initBasketMode,
+    getBasketGame
+} from './js/game/modes/basketMode.js';
 
 // Game mode state
 let selectedMode = null;
@@ -143,6 +147,12 @@ function setupModeSelection() {
                 setFilteredProducts(getProducts());
                 initMemoryMatchGame();
             }
+            else if (mode === 'basket') {
+                console.log('Starting basket mode...');
+                setSelectedCategory(null);
+                setFilteredProducts(getProducts());
+                initBasketGame();
+            }
         });
     });
     
@@ -153,7 +163,46 @@ function setupModeSelection() {
         });
     }
 }
+async function initBasketGame() {
+    try {
+        // Ensure products are loaded first
+        await loadProducts();
+        const products = getProducts();
+        
+        // Validate minimum product requirements
+        if (products.length < 3) {
+            throw new Error(`Basket mode requires at least 3 products. Currently have: ${products.length}`);
+        }
+        
+        console.log(`Loading ${products.length} products for basket mode`);
+        
+        // Set filtered products
+        setFilteredProducts(products);
+        
+        // Show the screen first
+        showBasketModeScreen();
+        
+        console.log(`Basket mode initialized successfully with ${products.length} products`);
+    } catch (error) {
+        console.error('Error initializing basket mode:', error);
+        showError('Error initializing basket mode: ' + error.message);
+        
+        // Fallback to mode selection if initialization fails
+        setTimeout(() => {
+            showModeSelection();
+        }, 3000);
+    }
+}
 
+function showBasketModeScreen() {
+    hideAllScreens();
+    const basketModeScreen = document.getElementById('basket-mode-screen');
+    if (basketModeScreen) {
+        basketModeScreen.style.display = 'block';
+        // Initialize the basket mode
+        initBasketMode();
+    }
+}
 // Add new function for Higher-Lower game initialization
 async function initHigherLowerGame() {
     try {
@@ -244,6 +293,7 @@ function hideAllScreens() {
     const comparisonScreen = document.getElementById('comparison-screen');
     const higherLowerScreen = document.getElementById('higher-lower-screen');
     const memoryMatchScreen = document.getElementById('memory-match-screen');
+    const basketModeScreen = document.getElementById('basket-mode-screen');
     
     if (modeSelection) modeSelection.style.display = 'none';
     if (categorySelection) categorySelection.style.display = 'none';
@@ -251,6 +301,7 @@ function hideAllScreens() {
     if (comparisonScreen) comparisonScreen.style.display = 'none';
     if (higherLowerScreen) higherLowerScreen.style.display = 'none';
     if (memoryMatchScreen) memoryMatchScreen.style.display = 'none';
+    if (basketModeScreen) basketModeScreen.style.display = 'none';
 }
 // Add function to show higher-lower screen
 function showHigherLowerScreen() {
@@ -967,3 +1018,5 @@ window.initHigherLowerGame = initHigherLowerGame;
 window.hideAllScreens = hideAllScreens;
 window.initMemoryMatchGame = initMemoryMatchGame;
 window.showMemoryMatchScreen = showMemoryMatchScreen;
+window.initBasketGame = initBasketGame;
+window.showBasketModeScreen = showBasketModeScreen;

@@ -23,6 +23,7 @@
 @import 'pages/comparison-mode.css';
 @import 'pages/time-mode.css';
 @import 'pages/memory-match.css';
+@import 'pages/basket-mode.css';
 
 /* 6. Utilities */
 @import 'utilities/animations.css';

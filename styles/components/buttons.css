@@ -2,11 +2,35 @@
     background-color: var(--button-bg);
     border-color: var(--button-bg);
     transition: background-color 0.3s, border-color 0.3s;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .btn-primary:hover {
     background-color: var(--button-hover);
     border-color: var(--button-hover);
+    opacity: 1 !important;
+}
+
+.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.btn.btn-primary.btn-lg {
+    opacity: 1 !important;
+    visibility: visible !important;
+    background-color: var(--button-bg) !important;
+    border-color: var(--button-bg) !important;
+}
+
+.btn.btn-primary.btn-lg:hover {
+    background-color: var(--button-hover) !important;
+    border-color: var(--button-hover) !important;
+    opacity: 1 !important;
 }
 
 /* Help Button Styles */
